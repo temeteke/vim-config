@@ -37,6 +37,9 @@ set incsearch
 " ルーラーを表示
 set ruler
 
+" バックアップファイルを作成しない
+set nobackup
+
 set shell=bash
 
 " 現在行にアンダーラインを引く (気の利いた機能付き) 
