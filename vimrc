@@ -181,6 +181,14 @@ endif
 "let g:SrcExpl_UpdateTags = 1
 
 "------------------------------------------------------------------------------"
+" quickrun
+"------------------------------------------------------------------------------"
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser',
+      \ }
+
+"------------------------------------------------------------------------------"
 " Vundle
 "------------------------------------------------------------------------------"
 set nocompatible               " be iMproved
@@ -201,7 +209,6 @@ Bundle 'motemen/git-vim'
 Bundle 'mattn/multi-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/neocomplcache'
-Bundle 'suan/vim-instant-markdown'
 "Bundle 'wesleyche/SrcExpl'
 " vim-scripts repos
 Bundle 'project.tar.gz'
@@ -209,6 +216,7 @@ Bundle 'quickrun.vim'
 Bundle 'Markdown'
 Bundle "taglist.vim"
 "Bundle "AutoClose"
+Bundle 'tyru/open-browser.vim'
 " non github repos
 " ...
 
