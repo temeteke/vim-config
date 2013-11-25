@@ -73,6 +73,10 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,
 " 色の設定
 set background=dark
 
+" 自動的にQuickFixウィンドウを開く
+" via http://kaworu.jpn.org/kaworu/2008-06-07-1.php
+au QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
 
 "-------------------------------------------------------------------------------
 " Mapping <jump-tag>
