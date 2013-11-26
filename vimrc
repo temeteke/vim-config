@@ -106,10 +106,10 @@ nnoremap <S-l> 5l
 
 " 挿入モードでのカーソル移動
 " via http://qiita.com/items/14389dbaaa43d25f3254
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+"inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-l> <Right>
 
 " j/kを押しまくった時insertモードから抜ける
 " via http://qiita.com/items/14389dbaaa43d25f3254
