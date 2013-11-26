@@ -111,6 +111,12 @@ nnoremap <S-l> 5l
 "inoremap <C-k> <Up>
 "inoremap <C-l> <Right>
 
+" Ctrlを使って削除
+inoremap <C-h> 
+inoremap <C-l> [3~
+inoremap <C-u> <ESC>ld^i
+inoremap <C-o> <ESC>ld$a
+
 " j/kを押しまくった時insertモードから抜ける
 " via http://qiita.com/items/14389dbaaa43d25f3254
 inoremap <silent> hhh <ESC>
