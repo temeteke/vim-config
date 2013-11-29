@@ -223,13 +223,14 @@ Bundle 'mattn/multi-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/neocomplcache'
 "Bundle 'wesleyche/SrcExpl'
+Bundle 'tyru/open-browser.vim'
 " vim-scripts repos
 Bundle 'project.tar.gz'
 Bundle 'quickrun.vim'
 Bundle 'Markdown'
 Bundle "taglist.vim"
 "Bundle "AutoClose"
-Bundle 'tyru/open-browser.vim'
+Bundle "camelcasemotion.vim"
 " non github repos
 " ...
 
