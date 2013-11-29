@@ -230,7 +230,7 @@ Bundle 'quickrun.vim'
 Bundle 'Markdown'
 Bundle "taglist.vim"
 "Bundle "AutoClose"
-Bundle "camelcasemotion.vim"
+Bundle "camelcasemotion"
 " non github repos
 " ...
 
