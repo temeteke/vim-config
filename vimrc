@@ -202,45 +202,45 @@ let g:quickrun_config['markdown'] = {
       \ }
 
 "------------------------------------------------------------------------------"
-" Vundle
+" neobundle
 "------------------------------------------------------------------------------"
-set nocompatible               " be iMproved
-filetype off                   " required!
+if has('vim_starting')
+	set nocompatible               " Be iMproved
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
 
 " My Bundles here:
 "
-" original repos on github
-Bundle 'motemen/git-vim'
-"Bundle 'Shougo/unite.vim'
-Bundle 'mattn/multi-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Shougo/neocomplcache'
-"Bundle 'wesleyche/SrcExpl'
-Bundle 'tyru/open-browser.vim'
+" Note: You don't set neobundle setting in .gvimrc!
+" Original repos on github
+NeoBundle 'motemen/git-vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'mattn/multi-vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'tyru/open-browser.vim'
 " vim-scripts repos
-Bundle 'project.tar.gz'
-Bundle 'quickrun.vim'
-Bundle 'Markdown'
-Bundle "taglist.vim"
-"Bundle "AutoClose"
-Bundle "camelcasemotion"
-" non github repos
-" ...
+NeoBundle 'quickrun.vim'
+NeoBundle 'Markdown'
+NeoBundle "taglist.vim"
+NeoBundle "camelcasemotion"
 
-filetype plugin indent on     " required!
+
+filetype plugin indent on     " Required!
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+NeoBundleCheck
