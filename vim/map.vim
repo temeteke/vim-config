@@ -17,19 +17,12 @@ nnoremap <Down> gj
 nnoremap <Up> gk
 
 " Shift-j,Shift-kで半画面スクロール
-nnoremap <S-j> <C-d>
-nnoremap <S-k> <C-u>
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
 
 " Shift-h,Shift-lで大きく移動
-nnoremap <S-h> 5h
-nnoremap <S-l> 5l
-
-" 挿入モードでのカーソル移動
-" via http://qiita.com/items/14389dbaaa43d25f3254
-"inoremap <C-h> <Left>
-"inoremap <C-j> <Down>
-"inoremap <C-k> <Up>
-"inoremap <C-l> <Right>
+nnoremap <C-h> 5h
+nnoremap <C-l> 5l
 
 " Ctrlを使って削除
 inoremap <C-h> 
