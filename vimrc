@@ -1,5 +1,8 @@
-source .vimrc.local
-source .vim/misc.vim
-source .vim/map.vim
-source .vim/neobundle.vim
-source .vim/plugin.vim
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
+endif
+
+source ~/.vim/misc.vim
+source ~/.vim/map.vim
+source ~/.vim/neobundle.vim
+source ~/.vim/plugin.vim
