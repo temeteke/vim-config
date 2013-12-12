@@ -38,11 +38,14 @@ endif
 "------------------------------------------------------------------------------"
 " quickrun
 "------------------------------------------------------------------------------"
-let g:quickrun_config = {}
-let g:quickrun_config['_'] = {
-\	"runner" : "vimproc",
-\	"runner/vimproc/updatetime" : 60
-\}
-let g:quickrun_config['markdown'] = {
-\	'outputter': 'browser',
+let g:quickrun_config = {
+\	'_' : {
+\		'runner' : 'vimproc',
+\		'runner/vimproc/updatetime' : 60,
+\	},
+\	'markdown' : {
+\		'type' : 'markdown/pandoc',
+\		'args' : '-s --mathjax',
+\		'outputter' : 'browser',
 \	}
+\}
