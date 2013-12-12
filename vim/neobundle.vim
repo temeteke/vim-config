@@ -22,6 +22,7 @@ NeoBundle 'mattn/multi-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
