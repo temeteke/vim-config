@@ -102,6 +102,3 @@ let g:auto_ctags_directory_list = ['.git', '.svn']
 " gundo.vim
 "------------------------------------------------------------------------------"
 let g:gundo_right = 1
-if has('vim_starting')
-	autocmd VimEnter * GundoShow
-endif
