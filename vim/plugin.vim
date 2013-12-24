@@ -95,4 +95,5 @@ let g:quickrun_config = {
 " auto-ctags.vim
 "------------------------------------------------------------------------------"
 let g:auto_ctags = 1
-let g:auto_ctags_tags_args = '--recurse'
+let g:auto_ctags_tags_args = '--recurse --langmap=C++:+.cu'
+let g:auto_ctags_directory_list = ['.git', '.svn']
