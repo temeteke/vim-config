@@ -97,3 +97,11 @@ let g:quickrun_config = {
 let g:auto_ctags = 1
 let g:auto_ctags_tags_args = '--recurse --langmap=C++:+.cu'
 let g:auto_ctags_directory_list = ['.git', '.svn']
+
+"------------------------------------------------------------------------------"
+" gundo.vim
+"------------------------------------------------------------------------------"
+let g:gundo_right = 1
+if has('vim_starting')
+	autocmd VimEnter * GundoShow
+endif
