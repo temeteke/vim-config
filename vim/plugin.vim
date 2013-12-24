@@ -1,4 +1,45 @@
 "------------------------------------------------------------------------------"
+" neobundle
+"------------------------------------------------------------------------------"
+if has('vim_starting')
+	set nocompatible               " Be iMproved
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {
+	\ 'build' : {
+	\     'windows' : 'make -f make_mingw32.mak',
+	\     'cygwin' : 'make -f make_cygwin.mak',
+	\     'mac' : 'make -f make_mac.mak',
+	\     'unix' : 'make -f make_unix.mak',
+	\    },
+	\ }
+
+NeoBundle 'motemen/git-vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'mattn/multi-vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'soramugi/auto-ctags.vim'
+
+NeoBundle 'quickrun.vim'
+NeoBundle 'Markdown'
+NeoBundle "taglist.vim"
+NeoBundle "camelcasemotion"
+
+
+filetype plugin indent on     " Required!
+
+" Installation check.
+NeoBundleCheck
+
+"------------------------------------------------------------------------------"
 " neocomplcache
 "------------------------------------------------------------------------------"
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
@@ -49,3 +90,9 @@ let g:quickrun_config = {
 \		'outputter' : 'browser',
 \	}
 \}
+
+"------------------------------------------------------------------------------"
+" auto-ctags.vim
+"------------------------------------------------------------------------------"
+let g:auto_ctags = 1
+let g:auto_ctags_tags_args = '--recurse'
