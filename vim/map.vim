@@ -37,16 +37,8 @@ inoremap <silent> jjj <ESC>
 inoremap <silent> kkk <ESC>
 inoremap <silent> lll <ESC>
 
-"copenで飛べなかったので無効
-"" 挿入モードにならずに改行を入れる
-"nnoremap <CR> o<ESC>
-
-" タグスタックを戻るキーを<C-_>に
-" これでソースを辿るときに<C-]><C-_>で辿れる
-nnoremap <C-_> :pop<CR>
-" Shift押しながら戻るようにしたほうがやりやすいかもと思って実験
-nnoremap <C-S-]> :pop<CR>
-" これも実験
+" タグスタックを戻るキーを<C-@>に
+" これでソースを辿るときに<C-]><C-@>で辿れる
 nnoremap <C-@> :pop<CR>
 
 " タブの操作をしやすく
