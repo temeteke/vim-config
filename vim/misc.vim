@@ -1,6 +1,9 @@
 " 行番号表示
 set number
 
+" アンドゥの永続化
+set undofile
+
 " 色をつける
 syntax on
 
