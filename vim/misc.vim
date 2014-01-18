@@ -16,8 +16,8 @@ set noexpandtab
 " 
 set softtabstop=0
 
-" 補完を便利に
-set wildmenu
+" 補完
+set wildmode=longest,list
 
 " タイプ途中のコマンドを画面最下行に表示
 set showcmd
