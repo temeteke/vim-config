@@ -3,6 +3,7 @@ set number
 
 " アンドゥの永続化
 set undofile
+set undodir=./.vimundo,~/.vimundo
 
 " 色をつける
 syntax on
