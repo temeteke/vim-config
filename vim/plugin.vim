@@ -28,6 +28,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'kana/vim-fakeclip'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
