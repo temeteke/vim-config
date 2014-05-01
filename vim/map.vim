@@ -57,8 +57,10 @@ nnoremap <C-s> <C-a>
 
 " <PageDown>と<PageUp>もスムーズスクロール(smooth_scroll.vim)
 " via http://blog.blueblack.net/item_219
-nnoremap <PageDown> <C-d>
-nnoremap <PageUp> <C-u>
+"nnoremap <PageDown> <C-d>
+"nnoremap <PageUp> <C-u>
+nnoremap [6~ <C-d>
+nnoremap [5~ <C-u>
 
 "------------------------------------------------------------------------------"
 " migemo
