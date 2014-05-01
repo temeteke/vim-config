@@ -3,5 +3,5 @@ if filereadable(expand('~/.vimrc.local'))
 endif
 
 source ~/.vim/misc.vim
-source ~/.vim/map.vim
 source ~/.vim/plugin.vim
+source ~/.vim/map.vim

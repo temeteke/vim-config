@@ -34,7 +34,6 @@ NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
-NeoBundle "Smooth-Scroll"
 
 
 filetype plugin indent on     " Required!
