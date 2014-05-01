@@ -55,6 +55,11 @@ nnoremap <C-t><C-t> :pop<CR>
 " Ctrl-aをtmuxのプレフィックスにしているのでCtrl-sでできるようにする。
 nnoremap <C-s> <C-a>
 
+" <PageDown>と<PageUp>もスムーズスクロール(smooth_scroll.vim)
+" via http://blog.blueblack.net/item_219
+nnoremap <PageDown> <C-d>
+nnoremap <PageUp> <C-u>
+
 "------------------------------------------------------------------------------"
 " migemo
 "------------------------------------------------------------------------------"
