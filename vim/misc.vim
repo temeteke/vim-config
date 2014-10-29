@@ -86,3 +86,6 @@ autocmd QuickfixCmdPre make let $LANG="C"
 " 自動的にQuickFixウィンドウを開く
 " via http://kaworu.jpn.org/kaworu/2008-06-07-1.php
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
+" マーカーで折りたたみ
+set foldmethod=marker
