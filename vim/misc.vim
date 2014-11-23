@@ -89,3 +89,8 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 " マーカーで折りたたみ
 set foldmethod=marker
+
+" c*でカーソル下のキーワードを置換
+" via http://miniman2011.blog55.fc2.com/blog-entry-295.html
+nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
+vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
