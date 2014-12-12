@@ -87,8 +87,6 @@ let g:quickrun_config = {
 \		'runner/vimproc/updatetime' : 60,
 \	},
 \	'markdown' : {
-\		'type' : 'markdown/pandoc',
-\		'args' : '-s --mathjax',
 \		'outputter' : 'browser',
 \	}
 \}
