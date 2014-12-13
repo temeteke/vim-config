@@ -94,3 +94,6 @@ set foldmethod=marker
 " via http://miniman2011.blog55.fc2.com/blog-entry-295.html
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
+
+" statusline
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
