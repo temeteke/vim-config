@@ -22,6 +22,7 @@ NeoBundle 'Shougo/vimproc', {
 "NeoBundle 'motemen/git-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-build'
 NeoBundle 'mattn/multi-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
