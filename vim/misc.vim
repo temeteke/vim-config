@@ -97,3 +97,7 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
 " statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" スペルチェック
+set spelllang+=cjk
+set spell
