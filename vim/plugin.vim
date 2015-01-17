@@ -30,6 +30,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'daisuzu/translategoogle.vim'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
