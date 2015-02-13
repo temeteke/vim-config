@@ -43,6 +43,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'daisuzu/translategoogle.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'

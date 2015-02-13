@@ -79,6 +79,7 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,
 
 " 色の設定
 set background=dark
+colorscheme solarized
 
 " 英語でmake
 autocmd QuickfixCmdPre make let $LANG="C"
