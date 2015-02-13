@@ -7,17 +7,18 @@ $(if $(DIRS), ,$(error The installation directories are not found))
 FILES := .vimrc .gvimrc .vim
 
 .PHONY: all clean install uninstall FORCE
-all: .vim/bundle/neobundle.vim
+all: $(FILES) neobundle
 
-.vim/bundle/neobundle.vim: FORCE
+neobundle: FORCE
+	mkdir -p ~/.vim/bundle
 	[ -d .vim/bundle/neobundle.vim ] \
-		|| git clone https://github.com/Shougo/neobundle.vim \
-		&& (cd .vim/bundle/neobundle.vim && git pull)
+		&& (cd .vim/bundle/neobundle.vim && git pull) \
+		|| git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 
 clean:
 	rm -rf .vim/bundle/neobundle.vim
 
-install: $(FILES)
+install: all
 	for dir in $(DIRS); do \
 		cp -r $(FILES) $$dir/; \
 	done
