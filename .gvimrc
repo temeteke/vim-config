@@ -6,7 +6,8 @@ source $VIMRUNTIME/delmenu.vim
 set langmenu=ja_jp.utf-8
 source $VIMRUNTIME/menu.vim
 
-colorscheme desert
+set background=light
+colorscheme solarized
 
 set guifont=Consolas:h9
 
