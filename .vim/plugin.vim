@@ -1,15 +1,28 @@
 "------------------------------------------------------------------------------"
 " neobundle
 "------------------------------------------------------------------------------"
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 if has('vim_starting')
-	set nocompatible               " Be iMproved
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
+" Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'Shougo/vimproc', {
 	\ 'build' : {
 	\     'windows' : 'make -f make_mingw32.mak',
@@ -18,7 +31,6 @@ NeoBundle 'Shougo/vimproc', {
 	\     'unix' : 'make -f make_unix.mak',
 	\    },
 	\ }
-
 "NeoBundle 'motemen/git-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
@@ -37,10 +49,13 @@ NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
 
+call neobundle#end()
 
-filetype plugin indent on     " Required!
+" Required:
+filetype plugin indent on
 
-" Installation check.
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
 
 "------------------------------------------------------------------------------"

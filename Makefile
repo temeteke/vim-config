@@ -22,6 +22,7 @@ install: all
 	for dir in $(DIRS); do \
 		cp -r $(FILES) $$dir/; \
 	done
+	vim +NeoBundleInstall +qall
 		
 uninstall:
 	for dir in $(DIRS); do \
