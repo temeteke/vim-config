@@ -16,7 +16,7 @@ neobundle: FORCE
 		|| git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 
 clean:
-	rm -rf .vim/bundle/neobundle.vim
+	rm -rf .vim/bundle
 
 install: all
 	for dir in $(DIRS); do \
