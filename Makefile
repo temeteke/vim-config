@@ -19,7 +19,7 @@ clean:
 	rm -rf .vim/bundle
 
 install: all
-	for dir in $(DIRS); do \
+	-for dir in $(DIRS); do \
 		cp -r $(FILES) $$dir/; \
 	done
 	vim +NeoBundleInstall +qall
