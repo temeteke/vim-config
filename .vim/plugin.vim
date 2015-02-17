@@ -107,7 +107,7 @@ let g:quickrun_config = {
 \	'markdown' : {
 \		'outputter' : 'browser',
 \		'type': 'markdown/pandoc',
-\		'cmdopt': '-c ~/.pandoc/github.css',
+\		'cmdopt': '--mathml -c ~/.pandoc/github.css',
 \	}
 \}
 
