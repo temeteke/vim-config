@@ -31,7 +31,6 @@ NeoBundle 'Shougo/vimproc', {
 	\     'unix' : 'make -f make_unix.mak',
 	\    },
 	\ }
-"NeoBundle 'motemen/git-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-build'
@@ -44,6 +43,7 @@ NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'daisuzu/translategoogle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
