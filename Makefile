@@ -20,7 +20,7 @@ clean:
 
 install: all
 	-for dir in $(DIRS); do \
-		cp -r $(FILES) $$dir/; \
+		cp -rf $(FILES) $$dir/; \
 	done
 	vim +NeoBundleInstall +qall
 		
