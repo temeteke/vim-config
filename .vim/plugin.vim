@@ -79,16 +79,6 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 
 "------------------------------------------------------------------------------"
-" NERDTree
-"------------------------------------------------------------------------------"
-" 引数なしでvimを開いたらNERDTreeを起動、引数ありならNERDTreeは起動しないように
-" via http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
-let file_name = expand("%")
-if has('vim_starting') &&  file_name == ""
-    autocmd VimEnter * NERDTree ./
-endif
-
-"------------------------------------------------------------------------------"
 " SrcExpl
 "------------------------------------------------------------------------------"
 " via http://d.hatena.ne.jp/guyon/20080409/1207737955
