@@ -47,6 +47,7 @@ NeoBundle 'daisuzu/translategoogle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'Shougo/vimfiler.vim'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
