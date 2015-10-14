@@ -33,7 +33,9 @@ NeoBundle 'Shougo/vimproc', {
 	\ }
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-build'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'mattn/multi-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
@@ -44,7 +46,6 @@ NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'daisuzu/translategoogle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'Shougo/unite-outline'
 NeoBundle 'kannokanno/previm'
 
 NeoBundle 'quickrun.vim'
