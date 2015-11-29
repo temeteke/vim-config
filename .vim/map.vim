@@ -57,3 +57,9 @@ inoremap <silent> jjj <ESC>
 inoremap <silent> kkk <ESC>
 inoremap <silent> lll <ESC>
 
+" Quickfixの移動
+" http://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
