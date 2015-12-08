@@ -48,7 +48,10 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'austintaylor/vim-commaobject'
+
+" テキストオブジェクト
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'sgur/vim-textobj-parameter'
 
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
