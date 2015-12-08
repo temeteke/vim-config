@@ -63,3 +63,11 @@ nnoremap [q :cprevious<CR>   " 前へ
 nnoremap ]q :cnext<CR>       " 次へ
 nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+" Unite
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
+
+nnoremap <silent> [unite]c :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
