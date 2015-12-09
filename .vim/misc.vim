@@ -101,7 +101,9 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " スペルチェック
-set spelllang+=cjk
+if v:version > 704 || (v:version == 704 && has('patch088'))
+	set spelllang+=cjk
+endif
 set spell
 
 " diff
