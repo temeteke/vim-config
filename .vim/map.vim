@@ -74,5 +74,5 @@ nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
 
 " : と ; を入れ替える
-nnoremap ; :
-nnoremap : ;
+noremap ; :
+noremap : ;
