@@ -77,3 +77,10 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
 " : と ; を入れ替える
 noremap ; :
 noremap : ;
+
+" fugitive
+nnoremap [fugitive]    <Nop>
+nmap     <Space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
