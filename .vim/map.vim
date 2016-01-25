@@ -86,3 +86,6 @@ nnoremap <silent> [fugitive]s :Gstatus<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]b :Gblame<CR>
 nnoremap <silent> [fugitive]c :Gcommit<CR>
+
+" Gundo
+nnoremap <silent> <Space>h :GundoToggle<CR>
