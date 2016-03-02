@@ -48,6 +48,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'tpope/vim-surround'
 
 " テキストオブジェクト
 NeoBundle 'kana/vim-textobj-user'
