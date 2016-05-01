@@ -58,6 +58,7 @@ NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
+NeoBundle 'sudo.vim'
 
 call neobundle#end()
 
