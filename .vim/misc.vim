@@ -47,8 +47,6 @@ set nobackup
 " for Windows
 set shellslash
 
-set shell=bash
-
 " 現在行にアンダーラインを引く (気の利いた機能付き) 
 " via http://d.hatena.ne.jp/kozo-ni/20081103#1225684026
 setlocal cursorline
