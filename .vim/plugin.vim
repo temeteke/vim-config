@@ -50,6 +50,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'ryym/vim-riot'
 
 " テキストオブジェクト
 NeoBundle 'kana/vim-textobj-user'
