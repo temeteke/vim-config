@@ -33,34 +33,31 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-build'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'mattn/multi-vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'daisuzu/translategoogle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
-NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'ryym/vim-riot'
-
-" テキストオブジェクト
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'sgur/vim-textobj-parameter'
-
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
 NeoBundle 'sudo.vim'
+
+" Unite.vim
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-build'
+NeoBundle 'Shougo/unite-outline'
+
+" テキストオブジェクト
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'sgur/vim-textobj-parameter'
 
 call neobundle#end()
 
@@ -88,15 +85,6 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 let g:netrw_alto = 1
-
-"------------------------------------------------------------------------------"
-" SrcExpl
-"------------------------------------------------------------------------------"
-" via http://d.hatena.ne.jp/guyon/20080409/1207737955
-"" 自動で表示
-"let g:SrcExpl_RefreshTime = 1 
-"" tagsをsrcexpl起動時に自動で作成
-"let g:SrcExpl_UpdateTags = 1
 
 "------------------------------------------------------------------------------"
 " quickrun
