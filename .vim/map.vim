@@ -74,6 +74,7 @@ nnoremap <silent> [unite]p :<C-u>Unite<Space>file_rec/async:!<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite<Space>line<CR>
+nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
 
 " : と ; を入れ替える
 noremap ; :
