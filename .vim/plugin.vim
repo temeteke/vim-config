@@ -43,6 +43,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'ryym/vim-riot'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'quickrun.vim'
 NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
@@ -54,6 +55,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-build'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/neossh.vim'
 
 " テキストオブジェクト
 NeoBundle 'kana/vim-textobj-user'
