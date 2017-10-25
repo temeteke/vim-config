@@ -37,12 +37,6 @@ nnoremap <C-s> <C-a>
 nnoremap <PageUp> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 nnoremap <PageDown> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
-"------------------------------------------------------------------------------"
-" migemo
-"------------------------------------------------------------------------------"
-" via http://d.hatena.ne.jp/eholic/20091111/p1
-noremap // :<C-u>Migemo<CR>
-
 "-- inset --
 " Ctrlを使って削除
 inoremap <C-h> 
