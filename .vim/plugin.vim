@@ -45,10 +45,13 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'ryym/vim-riot'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'quickrun.vim'
-NeoBundle 'Markdown'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
 NeoBundle 'sudo.vim'
+
+" Markdown
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
 
 " Unite.vim
 NeoBundle 'Shougo/unite.vim'
@@ -114,3 +117,8 @@ let g:auto_ctags_directory_list = ['.git']
 " Unite
 "------------------------------------------------------------------------------"
 let g:unite_enable_start_insert=1
+
+"------------------------------------------------------------------------------"
+" vim-markdown
+"------------------------------------------------------------------------------"
+let g:vim_markdown_folding_disabled = 1
