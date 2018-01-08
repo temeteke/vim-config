@@ -130,3 +130,7 @@ endif
 " IME デフォルトオフ
 set iminsert=0
 set imsearch=-1
+
+" 不可視文字の表示
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
