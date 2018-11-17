@@ -48,6 +48,7 @@ NeoBundle 'quickrun.vim'
 NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
 NeoBundle 'sudo.vim'
+NeoBundle 'stephpy/vim-yaml'
 
 " Markdown
 NeoBundle 'godlygeek/tabular'
