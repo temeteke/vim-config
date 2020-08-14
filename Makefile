@@ -1,6 +1,6 @@
 DIRS := \
 	~ \
-#	$(shell which cygpath > /dev/null 2>&1 && cygpath "$(USERPROFILE)")
+	$(shell which cygpath > /dev/null 2>&1 && cygpath "$(USERPROFILE)")
 DIRS := $(foreach dir,$(DIRS),$(shell [ -d $(dir) ] && echo $(dir)))
 $(if $(DIRS), ,$(error The installation directories are not found))
 
