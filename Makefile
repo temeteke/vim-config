@@ -8,14 +8,17 @@ NVIM_FILES := init.vim map.vim
 .PHONY: all clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
 all: $(VIM_FILES) neobundle
 
-neobundle: FORCE
-	mkdir -p ~/.vim/bundle
+.vim:
+	mkdir .vim
+
+neobundle: .vim FORCE
+	mkdir -p .vim/bundle
 	[ -d .vim/bundle/neobundle.vim ] \
 		&& (cd .vim/bundle/neobundle.vim && git pull) \
 		|| git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 
 clean:
-	rm -rf .vim/bundle
+	rm -rf .vim
 
 install: install-vim install-nvim
 
