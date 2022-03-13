@@ -1,9 +1,4 @@
-VIM_DIRS := \
-	~ \
-	$(shell which cygpath > /dev/null 2>&1 && cygpath "$(USERPROFILE)")
-VIM_DIRS := $(foreach dir,$(VIM_DIRS),$(shell [ -d $(dir) ] && echo $(dir)))
-$(if $(VIM_DIRS), ,$(error The installation directories are not found))
-
+VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc .vim
 VIM_SUB_FILES := map.vim plugin.vim misc.vim
 
@@ -25,12 +20,8 @@ clean:
 install: install-vim install-nvim
 
 install-vim: $(VIM_FILES) neobundle
-	-for dir in $(VIM_DIRS); do \
-		cp -rf $(VIM_FILES) $$dir/; \
-	done
-	-for dir in $(VIM_DIRS); do \
-		cp -rf $(VIM_SUB_FILES) $$dir/.vim; \
-	done
+	cp -rf $(VIM_FILES) $(VIM_DIR)/
+	cp -rf $(VIM_SUB_FILES) $(VIM_DIR)/.vim/
 	vim +NeoBundleInstall +qall
 
 $(NVIM_DIR):
@@ -42,9 +33,7 @@ install-nvim: $(NVIM_FILES) $(NVIM_DIR)
 uninstall: uninstall-vim uninstall-nvim
 
 uninstall-vim:
-	for dir in $(VIM_DIRS); do \
-		rm -rf $(addprefix $$dir/, $(VIM_FILES)); \
-	done
+	rm -rf $(addprefix $(VIM_DIR)/, $(VIM_FILES))
 
 uninstall-nvim:
 	rm -rf $(addprefix $(NVIM_DIR)/, $(NVIM_FILES))
