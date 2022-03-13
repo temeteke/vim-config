@@ -48,11 +48,11 @@ WINDOWS_NVIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell w
 
 windows-install: windows-install-vim windows-install-nvim
 
-windows-install-vim: $(NVIM_FILES) $(NVIM_DIR)
+windows-install-vim: $(NVIM_FILES) $(WINDOWS_NVIM_DIR)
 	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_DIR)/.vim/
 
-windows-install-nvim: $(NVIM_FILES) $(NVIM_DIR)
+windows-install-nvim: $(NVIM_FILES) $(WINDOWS_NVIM_DIR)
 	cp -rf $(NVIM_FILES) $(WINDOWS_NVIM_DIR)/
 
 $(WINDOWS_NVIM_DIR):
