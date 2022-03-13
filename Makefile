@@ -5,17 +5,16 @@ VIM_SUB_FILES := map.vim plugin.vim misc.vim
 NVIM_DIR := ~/.config/nvim
 NVIM_FILES := init.vim map.vim
 
-.PHONY: all clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
-all: $(VIM_FILES) neobundle
+.PHONY: all neobundle clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
+all: $(VIM_FILES)
 
-.vim:
-	mkdir .vim
+.vim: neobundle
 
-neobundle: .vim FORCE
-	mkdir -p .vim/bundle
-	[ -d .vim/bundle/neobundle.vim ] \
-		&& (cd .vim/bundle/neobundle.vim && git pull) \
-		|| git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
+neobundle: .vim/bundle/neobundle.vim FORCE
+	cd .vim/bundle/neobundle.vim && git pull
+
+.vim/bundle/neobundle.vim:
+	git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
 
 clean:
 	rm -rf .vim
@@ -43,8 +42,8 @@ uninstall-nvim:
 	[ -z "`ls -A $(NVIM_DIR)`" ] && rm -r $(NVIM_DIR)
 
 
-WINDOWS_VIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell wslvar USERPROFILE)")
-WINDOWS_NVIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell wslvar LOCALAPPDATA)\\nvim")
+WINDOWS_VIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell which wslvar > /dev/null 2>&1 && wslvar USERPROFILE)")
+WINDOWS_NVIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell which wslvar > /dev/null 2>&1 && wslvar LOCALAPPDATA)\\nvim")
 
 windows-install: windows-install-vim windows-install-nvim
 
