@@ -1,1 +1,1 @@
-source ~/.config/nvim/map.vim
+runtime map.vim
