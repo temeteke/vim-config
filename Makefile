@@ -1,9 +1,9 @@
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc .vim
-VIM_SUB_FILES := map.vim plugin.vim misc.vim
+VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
-NVIM_FILES := init.vim map.vim
+NVIM_FILES := init.vim map.vim misc.vim
 
 .PHONY: all neobundle clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
 all: $(VIM_FILES)

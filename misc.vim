@@ -56,7 +56,9 @@ autocmd WinLeave * setlocal nocursorline
 " マウスを使用できるようにする
 " via http://cl.pocari.org/2007-03-14-3.html
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+	set ttymouse=xterm2
+endif
 
 " クリップボードにコピーするようにする
 set clipboard=unnamed
@@ -75,11 +77,6 @@ noremap! <BS> 
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 
-" 色の設定
-set background=dark
-let g:solarized_termtrans=1
-colorscheme solarized
-
 " 英語でmake
 autocmd QuickfixCmdPre make let $LANG="C"
 
@@ -94,9 +91,6 @@ set foldmethod=marker
 " via http://miniman2011.blog55.fc2.com/blog-entry-295.html
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
-
-" statusline
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " スペルチェック
 if v:version > 704 || (v:version == 704 && has('patch088'))
