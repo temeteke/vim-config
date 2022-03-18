@@ -1,76 +1,65 @@
-"------------------------------------------------------------------------------"
-" neobundle
-"------------------------------------------------------------------------------"
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin('~/.vim/bundles')
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'ryym/vim-riot'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'quickrun.vim'
-NeoBundle "camelcasemotion"
-NeoBundle 'sudo.vim'
-NeoBundle 'stephpy/vim-yaml'
+" Let dein manage dein
+" Required:
+call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('tpope/vim-fugitive')
+call dein#add('Shougo/neocomplcache')
+call dein#add('tyru/open-browser.vim')
+call dein#add('sjl/gundo.vim')
+call dein#add('kana/vim-fakeclip')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('h1mesuke/vim-alignta')
+call dein#add('kannokanno/previm')
+call dein#add('tpope/vim-surround')
+call dein#add('ryym/vim-riot')
+call dein#add('Shougo/vimfiler')
+call dein#add('vim-scripts/quickrun.vim')
+call dein#add('vim-scripts/camelcasemotion')
+call dein#add('vim-scripts/sudo.vim')
+call dein#add('stephpy/vim-yaml')
 
 " Markdown
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
+call dein#add('godlygeek/tabular')
+call dein#add('plasticboy/vim-markdown')
 
 " Unite.vim
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-build'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neossh.vim'
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/unite-build')
+call dein#add('Shougo/unite-outline')
+call dein#add('Shougo/neossh.vim')
 
 " テキストオブジェクト
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'sgur/vim-textobj-parameter'
+call dein#add('kana/vim-textobj-user')
+call dein#add('sgur/vim-textobj-parameter')
 
-call neobundle#end()
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+
 
 "------------------------------------------------------------------------------"
 " neocomplcache

@@ -5,26 +5,26 @@ VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
 NVIM_DIR := ~/.config/nvim
 NVIM_FILES := init.vim map.vim misc.vim
 
-.PHONY: all neobundle clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
+.PHONY: all clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
 all: $(VIM_FILES)
 
-.vim: neobundle
+.vim: dein
 
-neobundle: .vim/bundle/neobundle.vim FORCE
-	cd .vim/bundle/neobundle.vim && git pull
+dein: .vim/bundles/repos/github.com/Shougo/dein.vim FORCE
+	cd $< && git pull
 
-.vim/bundle/neobundle.vim:
-	git clone https://github.com/Shougo/neobundle.vim .vim/bundle/neobundle.vim
+.vim/bundles/repos/github.com/Shougo/dein.vim:
+	git clone --depth 1 https://github.com/Shougo/dein.vim $@
 
 clean:
 	rm -rf .vim
 
 install: install-vim install-nvim
 
-install-vim: $(VIM_FILES) neobundle
+install-vim: $(VIM_FILES)
 	cp -rf $(VIM_FILES) $(VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(VIM_DIR)/.vim/
-	vim +NeoBundleInstall +qall
+	vim "+call dein#install()" +qall
 
 install-nvim: $(NVIM_FILES) $(NVIM_DIR)
 	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
@@ -47,7 +47,7 @@ WINDOWS_NVIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell w
 
 windows-install: windows-install-vim windows-install-nvim
 
-windows-install-vim: $(VIM_FILES) neobundle
+windows-install-vim: $(VIM_FILES)
 	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_DIR)/.vim/
 
