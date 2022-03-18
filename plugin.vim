@@ -36,7 +36,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'h1mesuke/vim-alignta'
@@ -45,7 +44,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'ryym/vim-riot'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'quickrun.vim'
-NeoBundle "taglist.vim"
 NeoBundle "camelcasemotion"
 NeoBundle 'sudo.vim'
 NeoBundle 'stephpy/vim-yaml'
@@ -106,13 +104,6 @@ let g:quickrun_config = {
 \		'cmdopt': '--mathml -c ~/.pandoc/github.css',
 \	}
 \}
-
-"------------------------------------------------------------------------------"
-" auto-ctags.vim
-"------------------------------------------------------------------------------"
-let g:auto_ctags = 1
-let g:auto_ctags_tags_args = '--tag-relative --recurse --langmap=C++:+.cu'
-let g:auto_ctags_directory_list = ['.git']
 
 "------------------------------------------------------------------------------"
 " Unite
