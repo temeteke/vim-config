@@ -5,7 +5,7 @@ VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
 NVIM_DIR := ~/.config/nvim
 NVIM_FILES := init.vim map.vim misc.vim
 
-.PHONY: all clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
+.PHONY: all dein clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
 all: $(VIM_FILES)
 
 .vim: dein
@@ -18,6 +18,7 @@ dein: .vim/bundles/repos/github.com/Shougo/dein.vim FORCE
 
 clean:
 	rm -rf .vim
+
 
 install: install-vim install-nvim
 
@@ -65,5 +66,6 @@ windows-uninstall-vim:
 windows-uninstall-nvim:
 	rm -rf $(addprefix $(WINDOWS_NVIM_DIR)/, $(NVIM_FILES))
 	[ -z "`ls -A $(WINDOWS_NVIM_DIR)`" ] && rm -r $(WINDOWS_NVIM_DIR)
+
 
 FORCE:
