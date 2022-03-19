@@ -91,6 +91,9 @@ windows-install-vim-files: $(VIM_FILES) $(WINDOWS_VIM_DIR) $(VIM_SUB_FILES) $(WI
 $(WINDOWS_VIM_DIR):
 	mkdir $@
 
+$(WINDOWS_VIM_SUB_DIR):
+	mkdir $@
+
 windows-install-vim-dein: $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
