@@ -1,17 +1,24 @@
+if has('nvim')
+	let s:plugin_dir='~/.cache/dein'
+else
+	let s:plugin_dir='~/.vim/bundles'
+endif
+
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
+execute 'set runtimepath+=' . s:plugin_dir . '/repos/github.com/Shougo/dein.vim'
 
 " Required:
-call dein#begin('~/.vim/bundles')
+call dein#begin(s:plugin_dir)
 
 " Let dein manage dein
 " Required:
-call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
+call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})

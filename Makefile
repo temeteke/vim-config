@@ -1,38 +1,62 @@
 VIM_DIR := ~
-VIM_FILES := .vimrc .gvimrc .vim
+VIM_FILES := .vimrc .gvimrc
 VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
-NVIM_FILES := init.vim map.vim misc.vim
+NVIM_PLUGIN_DIR := ~/.cache/dein
+NVIM_FILES := init.vim map.vim color.vim plugin.vim misc.vim
 
-.PHONY: all dein clean install install-vim install-nvim uninstall uninstall-vim uninstall-nvim FORCE
-all: $(VIM_FILES)
+.PHONY: all clean FORCE
+all: dein.vim
 
-.vim: dein
-
-dein: .vim/bundles/repos/github.com/Shougo/dein.vim FORCE
-	cd $< && git pull
-
-.vim/bundles/repos/github.com/Shougo/dein.vim:
-	git clone --depth 1 https://github.com/Shougo/dein.vim $@
+dein.vim:
+	git clone --depth 1 https://github.com/Shougo/dein.vim -b 2.2 $@
 
 clean:
-	rm -rf .vim
+	rm -rf dein.vim
+
+FORCE:
 
 
+# Install
+.PHONY: install install-vim install-vim-files install-vim-dein install-nvim install-nvim-files install-nvim-dein
 install: install-vim install-nvim
 
-install-vim: $(VIM_FILES)
+# Install Vim
+install-vim: install-vim-files install-vim-dein
+
+install-vim-files: $(VIM_DIR) $(VIM_FILES)
 	cp -rf $(VIM_FILES) $(VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(VIM_DIR)/.vim/
+
+$(VIM_DIR):
+	mkdir $@
+
+install-vim-dein: $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
 	vim "+call dein#install()" +qall
 
-install-nvim: $(NVIM_FILES) $(NVIM_DIR)
+$(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
+	mkdir -p $@
+	cp -rfT $< $@
+
+# Install Neovim
+install-nvim: install-nvim-files install-nvim-dein
+
+install-nvim-files: $(NVIM_DIR) $(NVIM_FILES)
 	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
 
 $(NVIM_DIR):
-	mkdir $(NVIM_DIR)
+	mkdir $@
 
+install-nvim-dein: $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
+	nvim "+call dein#install()" +qall
+
+$(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
+	mkdir -p $@
+	cp -rfT $< $@
+
+# Uninstall
+.PHONY: uninstall uninstall-vim uninstall-nvim
 uninstall: uninstall-vim uninstall-nvim
 
 uninstall-vim:
@@ -41,23 +65,50 @@ uninstall-vim:
 uninstall-nvim:
 	rm -rf $(addprefix $(NVIM_DIR)/, $(NVIM_FILES))
 	[ -z "`ls -A $(NVIM_DIR)`" ] && rm -r $(NVIM_DIR)
+	rm -rf $(NVIM_PLUGIN_DIR)
 
 
-WINDOWS_VIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell which wslvar > /dev/null 2>&1 && wslvar USERPROFILE)")
-WINDOWS_NVIM_DIR := $(shell which wslpath > /dev/null 2>&1 && wslpath "$(shell which wslvar > /dev/null 2>&1 && wslvar LOCALAPPDATA)\\nvim")
+WINDOWS_VIM_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar USERPROFILE)")
+WINDOWS_NVIM_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar LOCALAPPDATA)\\nvim")
+WINDOWS_NVIM_PLUGIN_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar USERPROFILE)\\.cache\\dein")
 
+# Install in Windows
+.PHONY: windows-install windows-install-vim windows-install-vim-files windows-install-vim-dein windows-install-nvim windows-install-nvim-files windows-install-nvim-dein
 windows-install: windows-install-vim windows-install-nvim
 
-windows-install-vim: $(VIM_FILES)
+# Install Vim in Windows
+windows-install-vim: windows-install-vim-files windows-install-vim-dein
+
+windows-install-vim-files: $(WINDOWS_VIM_DIR) $(VIM_FILES)
 	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_DIR)/.vim/
 
-windows-install-nvim: $(NVIM_FILES) $(WINDOWS_NVIM_DIR)
+$(WINDOWS_VIM_DIR):
+	mkdir $@
+
+windows-install-vim-dein: $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
+
+$(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
+	mkdir -p $@
+	cp -rfT $< $@
+
+# Install Neovim in Windows
+windows-install-nvim: windows-install-nvim-files windows-install-nvim-dein
+
+windows-install-nvim-files: $(WINDOWS_NVIM_DIR) $(NVIM_FILES)
 	cp -rf $(NVIM_FILES) $(WINDOWS_NVIM_DIR)/
 
 $(WINDOWS_NVIM_DIR):
-	mkdir $(WINDOWS_NVIM_DIR)
+	mkdir $@
 
+windows-install-nvim-dein: $(WINDOWS_NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
+
+$(WINDOWS_NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
+	mkdir -p $@
+	cp -rfT $< $@
+
+# Uninstall in Windows
+.PHONY: windows-uninstall windows-uninstall-vim windows-uninstall-nvim
 windows-uninstall: windows-uninstall-vim windows-uninstall-nvim
 
 windows-uninstall-vim:
@@ -66,6 +117,4 @@ windows-uninstall-vim:
 windows-uninstall-nvim:
 	rm -rf $(addprefix $(WINDOWS_NVIM_DIR)/, $(NVIM_FILES))
 	[ -z "`ls -A $(WINDOWS_NVIM_DIR)`" ] && rm -r $(WINDOWS_NVIM_DIR)
-
-
-FORCE:
+	rm -rf $(WINDOWS_NVIM_PLUGIN_DIR)
