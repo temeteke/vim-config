@@ -1,5 +1,6 @@
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc
+VIM_SUB_DIR := $(VIM_DIR)/.vim
 VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
@@ -25,11 +26,14 @@ install: install-vim install-nvim
 # Install Vim
 install-vim: install-vim-files install-vim-dein
 
-install-vim-files: $(VIM_DIR) $(VIM_FILES)
+install-vim-files: $(VIM_FILES) $(VIM_DIR) $(VIM_SUB_FILES) $(VIM_SUB_DIR)
 	cp -rf $(VIM_FILES) $(VIM_DIR)/
-	cp -rf $(VIM_SUB_FILES) $(VIM_DIR)/.vim/
+	cp -rf $(VIM_SUB_FILES) $(VIM_SUB_DIR)/
 
 $(VIM_DIR):
+	mkdir $@
+
+$(VIM_SUB_DIR):
 	mkdir $@
 
 install-vim-dein: $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
@@ -42,7 +46,7 @@ $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
 # Install Neovim
 install-nvim: install-nvim-files install-nvim-dein
 
-install-nvim-files: $(NVIM_DIR) $(NVIM_FILES)
+install-nvim-files: $(NVIM_FILES) $(NVIM_DIR)
 	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
 
 $(NVIM_DIR):
@@ -61,14 +65,15 @@ uninstall: uninstall-vim uninstall-nvim
 
 uninstall-vim:
 	rm -rf $(addprefix $(VIM_DIR)/, $(VIM_FILES))
+	rm -rf $(VIM_SUB_DIR)
 
 uninstall-nvim:
 	rm -rf $(addprefix $(NVIM_DIR)/, $(NVIM_FILES))
-	[ -z "`ls -A $(NVIM_DIR)`" ] && rm -r $(NVIM_DIR)
 	rm -rf $(NVIM_PLUGIN_DIR)
 
 
 WINDOWS_VIM_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar USERPROFILE)")
+WINDOWS_VIM_SUB_DIR := $(WINDOWS_VIM_DIR)/.vim
 WINDOWS_NVIM_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar LOCALAPPDATA)\\nvim")
 WINDOWS_NVIM_PLUGIN_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar USERPROFILE)\\.cache\\dein")
 
@@ -79,9 +84,9 @@ windows-install: windows-install-vim windows-install-nvim
 # Install Vim in Windows
 windows-install-vim: windows-install-vim-files windows-install-vim-dein
 
-windows-install-vim-files: $(WINDOWS_VIM_DIR) $(VIM_FILES)
+windows-install-vim-files: $(VIM_FILES) $(WINDOWS_VIM_DIR) $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)
 	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
-	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_DIR)/.vim/
+	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)/
 
 $(WINDOWS_VIM_DIR):
 	mkdir $@
@@ -113,8 +118,8 @@ windows-uninstall: windows-uninstall-vim windows-uninstall-nvim
 
 windows-uninstall-vim:
 	rm -rf $(addprefix $(WINDOWS_VIM_DIR)/, $(VIM_FILES))
+	rm -rf $(WINDOWS_VIM_SUB_DIR)
 
 windows-uninstall-nvim:
 	rm -rf $(addprefix $(WINDOWS_NVIM_DIR)/, $(NVIM_FILES))
-	[ -z "`ls -A $(WINDOWS_NVIM_DIR)`" ] && rm -r $(WINDOWS_NVIM_DIR)
 	rm -rf $(WINDOWS_NVIM_PLUGIN_DIR)
