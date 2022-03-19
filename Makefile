@@ -37,7 +37,7 @@ $(VIM_SUB_DIR):
 	mkdir $@
 
 install-vim-dein: $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
-	vim "+call dein#install()" +qall
+	type vim > /dev/null 2>&1 && vim "+call dein#install()" +qall || echo Vim is not installed
 
 $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
@@ -53,7 +53,7 @@ $(NVIM_DIR):
 	mkdir $@
 
 install-nvim-dein: $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
-	nvim "+call dein#install()" +qall
+	type nvim > /dev/null 2>&1 && nvim "+call dein#install()" +qall || echo Neovim is not installed
 
 $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
