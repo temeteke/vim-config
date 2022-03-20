@@ -31,10 +31,10 @@ install-vim-files: $(VIM_FILES) $(VIM_DIR) $(VIM_SUB_FILES) $(VIM_SUB_DIR)
 	cp -rf $(VIM_SUB_FILES) $(VIM_SUB_DIR)/
 
 $(VIM_DIR):
-	mkdir $@
+	mkdir -p $@
 
 $(VIM_SUB_DIR):
-	mkdir $@
+	mkdir -p $@
 
 install-vim-dein: $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
 	type vim > /dev/null 2>&1 && vim "+call dein#install()" +qall || echo Vim is not installed
@@ -50,7 +50,7 @@ install-nvim-files: $(NVIM_FILES) $(NVIM_DIR)
 	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
 
 $(NVIM_DIR):
-	mkdir $@
+	mkdir -p $@
 
 install-nvim-dein: $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
 	type nvim > /dev/null 2>&1 && nvim "+call dein#install()" +qall || echo Neovim is not installed
@@ -89,10 +89,10 @@ windows-install-vim-files: $(VIM_FILES) $(WINDOWS_VIM_DIR) $(VIM_SUB_FILES) $(WI
 	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)/
 
 $(WINDOWS_VIM_DIR):
-	mkdir $@
+	mkdir -p $@
 
 $(WINDOWS_VIM_SUB_DIR):
-	mkdir $@
+	mkdir -p $@
 
 windows-install-vim-dein: $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
 
@@ -107,7 +107,7 @@ windows-install-nvim-files: $(WINDOWS_NVIM_DIR) $(NVIM_FILES)
 	cp -rf $(NVIM_FILES) $(WINDOWS_NVIM_DIR)/
 
 $(WINDOWS_NVIM_DIR):
-	mkdir $@
+	mkdir -p $@
 
 windows-install-nvim-dein: $(WINDOWS_NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
 
