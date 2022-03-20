@@ -79,10 +79,10 @@ noremap : ;
 " fugitive
 nnoremap [fugitive]    <Nop>
 nmap     <Space>g [fugitive]
-nnoremap <silent> [fugitive]s :Gstatus<CR>
-nnoremap <silent> [fugitive]d :Gdiff<CR>
-nnoremap <silent> [fugitive]b :Gblame<CR>
-nnoremap <silent> [fugitive]c :Gcommit<CR>
+nnoremap <silent> [fugitive]s :Git<CR>
+nnoremap <silent> [fugitive]d :Gdiffsplit<CR>
+nnoremap <silent> [fugitive]b :Git blame<CR>
+nnoremap <silent> [fugitive]c :Git commit<CR>
 
 " Gundo
 nnoremap <silent> <Space>h :GundoToggle<CR>
