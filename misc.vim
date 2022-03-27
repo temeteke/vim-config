@@ -128,3 +128,20 @@ set imsearch=-1
 " 不可視文字の表示
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+
+" カーソル
+" https://qiita.com/Linda_pp/items/10e0c94eb82b18071db34
+" https://oki2a24.com/2019/02/19/how-to-set-terminal-vim-cursor-in-vimrc-as-i-leraned-from-mintty-wiki-tips/
+" https://ttssh2.osdn.jp/manual/4/ja/usage/tips/vim.html
+if has('vim_starting')
+	" 起動時に非点滅のブロックタイプのカーソルに設定
+	let &t_ti .= "\e[2 q"
+	" ノーマルモード時に非点滅のブロックタイプのカーソルに設定
+	let &t_EI .= "\e[2 q"
+	" 挿入モード時に非点滅の縦棒タイプのカーソルに設定
+	let &t_SI .= "\e[6 q"
+	" 置換モード時に非点滅の下線タイプのカーソルに設定
+	let &t_SR .= "\e[4 q"
+	" 終了時にデフォルトのカーソルに設定
+	let &t_te .= "\e[0 q"
+endif
