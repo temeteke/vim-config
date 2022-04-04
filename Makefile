@@ -1,11 +1,11 @@
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc
 VIM_SUB_DIR := $(VIM_DIR)/.vim
-VIM_SUB_FILES := map.vim color.vim plugin.vim misc.vim
+VIM_SUB_FILES := map.vim color.vim plugin.vim gui.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
 NVIM_PLUGIN_DIR := ~/.cache/dein
-NVIM_FILES := init.vim map.vim color.vim plugin.vim misc.vim
+NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim gui.vim misc.vim
 
 .PHONY: all clean FORCE
 all: dein.vim
