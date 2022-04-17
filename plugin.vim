@@ -20,9 +20,9 @@ call dein#begin(s:plugin_dir)
 " Required:
 call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
-" Add or remove your plugins here like this:
+call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/dein.toml')
+
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('tpope/vim-fugitive')
 if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
 	call dein#add('vim-denops/denops.vim')
 	call dein#add('Shougo/ddc.vim')
