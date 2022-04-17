@@ -4,6 +4,8 @@ else
 	let s:plugin_dir='~/.vim/bundles'
 endif
 
+let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/'
+
 
 "dein Scripts-----------------------------
 if &compatible
@@ -20,22 +22,18 @@ call dein#begin(s:plugin_dir)
 " Required:
 call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
-call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/dein.toml')
+call dein#load_toml(s:base_dir . 'dein.toml')
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
 " denops.vim or not
 if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
-	call dein#add('vim-denops/denops.vim')
-	call dein#add('Shougo/ddc.vim')
-	call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/ddu.toml', {'lazy' : 1})
+	call dein#load_toml(s:base_dir . 'denops.toml', {'lazy' : 1})
 else
-	call dein#add('Shougo/neocomplcache')
-	call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/unite.toml')
+	call dein#load_toml(s:base_dir . 'nodenops.toml')
 endif
 
 call dein#add('tyru/open-browser.vim')
-call dein#add('sjl/gundo.vim')
 call dein#add('kana/vim-fakeclip')
 call dein#add('lifepillar/vim-solarized8')
 call dein#add('h1mesuke/vim-alignta')
@@ -70,11 +68,6 @@ endif
 
 "End dein Scripts-------------------------
 
-
-"------------------------------------------------------------------------------"
-" neocomplcache
-"------------------------------------------------------------------------------"
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 
 "------------------------------------------------------------------------------"
 " netrm.vim

@@ -1,2 +1,16 @@
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+nnoremap [fugitive]    <Nop>
+nmap     <Space>g [fugitive]
+nnoremap <silent> [fugitive]s :<C-U>Git<CR>
+nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
+nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
+nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
+'''
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+hook_add = '''
+nnoremap <silent> <Space>h :<C-U>GundoToggle<CR>
+'''

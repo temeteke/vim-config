@@ -1,4 +1,10 @@
 [[plugins]]
+repo = 'Shougo/neocomplcache'
+hook_add = '''
+let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+'''
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = '''
 let g:unite_enable_start_insert=1

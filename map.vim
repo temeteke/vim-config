@@ -61,14 +61,3 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 " : と ; を入れ替える
 noremap ; :
 noremap : ;
-
-" fugitive
-nnoremap [fugitive]    <Nop>
-nmap     <Space>g [fugitive]
-nnoremap <silent> [fugitive]s :<C-U>Git<CR>
-nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
-nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
-nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
-
-" Gundo
-nnoremap <silent> <Space>h :<C-U>GundoToggle<CR>
