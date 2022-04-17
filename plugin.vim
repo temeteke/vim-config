@@ -23,7 +23,12 @@ call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 " Add or remove your plugins here like this:
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('tpope/vim-fugitive')
-call dein#add('Shougo/neocomplcache')
+if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
+	call dein#add('vim-denops/denops.vim')
+	call dein#add('Shougo/ddc.vim')
+else
+	call dein#add('Shougo/neocomplcache')
+endif
 call dein#add('tyru/open-browser.vim')
 call dein#add('sjl/gundo.vim')
 call dein#add('kana/vim-fakeclip')
