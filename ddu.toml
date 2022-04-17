@@ -23,28 +23,28 @@ call ddu#custom#patch_global({
 [plugins.ftplugin]
 ddu-ff = '''
 nnoremap <buffer><silent> <CR>
-\ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+\ :<C-U>call ddu#ui#ff#do_action('itemAction')<CR>
 nnoremap <buffer><silent> <Space>
-\ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+\ :<C-U>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
 nnoremap <buffer><silent> i
-\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+\ :<C-U>call ddu#ui#ff#do_action('openFilterWindow')<CR>
 nnoremap <buffer><silent> q
-\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+\ :<C-U>call ddu#ui#ff#do_action('quit')<CR>
 '''
 ddu-ff-filter = '''
 inoremap <buffer><silent> <CR>
-\ <Esc><Cmd>close<CR>
+\ <Esc>:<C-U>close<CR>
 nnoremap <buffer><silent> <CR>
-\ <Cmd>close<CR>
+\ :<C-U>close<CR>
 nnoremap <buffer><silent> q
-\ <Cmd>close<CR>
+\ :<C-U>close<CR>
 '''
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file'
 on_source = 'ddu.vim'
 hook_add = '''
-nnoremap <silent> [ddu]f <Cmd>Ddu<Space>file<CR>
+nnoremap <silent> [ddu]f :<C-U>Ddu<Space>file<CR>
 '''
 
 [[plugins]]

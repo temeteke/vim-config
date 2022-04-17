@@ -6,19 +6,19 @@ let g:unite_enable_start_insert=1
 nnoremap [unite]    <Nop>
 nmap     <Space>u [unite]
 
-nnoremap <silent> [unite]<CR> :<C-u>Unite<CR>
-nnoremap <silent> [unite]f    :<C-u>Unite<Space>file<Space>file/new<CR>
-nnoremap <silent> [unite]p    :<C-u>Unite<Space>file_rec/async:!<CR>
-nnoremap <silent> [unite]b    :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]l    :<C-u>Unite<Space>line<CR>
-nnoremap <silent> [unite]t    :<C-u>Unite<Space>tab<CR>
-nnoremap <silent> [unite]g    :<C-u>Unite<Space>grep:.<CR>
+nnoremap <silent> [unite]<CR> :<C-U>Unite<CR>
+nnoremap <silent> [unite]f    :<C-U>Unite<Space>file<Space>file/new<CR>
+nnoremap <silent> [unite]p    :<C-U>Unite<Space>file_rec/async:!<CR>
+nnoremap <silent> [unite]b    :<C-U>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]l    :<C-U>Unite<Space>line<CR>
+nnoremap <silent> [unite]t    :<C-U>Unite<Space>tab<CR>
+nnoremap <silent> [unite]g    :<C-U>Unite<Space>grep:.<CR>
 '''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 hook_add = '''
-nnoremap <silent> [unite]u    :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]u    :<C-U>Unite<Space>file_mru<CR>
 '''
 
 [[plugins]]
@@ -27,7 +27,7 @@ repo = 'Shougo/unite-build'
 [[plugins]]
 repo = 'Shougo/unite-outline'
 hook_add = '''
-nnoremap <silent> [unite]o    :<C-u>Unite<Space>outline<CR>
+nnoremap <silent> [unite]o    :<C-U>Unite<Space>outline<CR>
 '''
 
 [[plugins]]

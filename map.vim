@@ -17,17 +17,17 @@ nnoremap <Up> gk
 
 " タグスタックを戻るキーを<C-@>に
 " これでソースを辿るときに<C-]><C-@>で辿れる
-nnoremap <C-@> :pop<CR>
+nnoremap <C-@> :<C-U>pop<CR>
 
 " タブの操作をしやすく
 " プレフィックスは<C-t>で
-nnoremap <C-t>l :tabnext<CR>
-nnoremap <C-t>n :tabnext<CR>
-nnoremap <C-t>h :tabprevious<CR>
-nnoremap <C-t>p :tabprevious<CR>
-nnoremap <C-t>c :tabnew<CR>
-nnoremap <C-t>q :tabclose<CR>
-nnoremap <C-t><C-t> :pop<CR>
+noremap <C-t>l :<C-U>tabnext<CR>
+noremap <C-t>n :<C-U>tabnext<CR>
+noremap <C-t>h :<C-U>tabprevious<CR>
+noremap <C-t>p :<C-U>tabprevious<CR>
+noremap <C-t>c :<C-U>tabnew<CR>
+noremap <C-t>q :<C-U>tabclose<CR>
+noremap <C-t><C-t> :<C-U>pop<CR>
 
 " 数字をインクリメント
 " Ctrl-aをtmuxのプレフィックスにしているのでCtrl-sでできるようにする。
@@ -53,8 +53,8 @@ inoremap <silent> lll <ESC>
 
 " Quickfixの移動
 " http://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [q :<C-U>cprevious<CR>   " 前へ
+nnoremap ]q :<C-U>cnext<CR>       " 次へ
 nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
@@ -65,10 +65,10 @@ noremap : ;
 " fugitive
 nnoremap [fugitive]    <Nop>
 nmap     <Space>g [fugitive]
-nnoremap <silent> [fugitive]s :Git<CR>
-nnoremap <silent> [fugitive]d :Gdiffsplit<CR>
-nnoremap <silent> [fugitive]b :Git blame<CR>
-nnoremap <silent> [fugitive]c :Git commit<CR>
+nnoremap <silent> [fugitive]s :<C-U>Git<CR>
+nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
+nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
+nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
 
 " Gundo
-nnoremap <silent> <Space>h :GundoToggle<CR>
+nnoremap <silent> <Space>h :<C-U>GundoToggle<CR>
