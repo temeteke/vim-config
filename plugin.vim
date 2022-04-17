@@ -23,12 +23,17 @@ call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/dein.toml')
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+
+" denops.vim or not
 if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
 	call dein#add('vim-denops/denops.vim')
 	call dein#add('Shougo/ddc.vim')
+	call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/ddu.toml', {'lazy' : 1})
 else
 	call dein#add('Shougo/neocomplcache')
+	call dein#load_toml(fnamemodify(expand('<sfile>'), ':h') . '/unite.toml')
 endif
+
 call dein#add('tyru/open-browser.vim')
 call dein#add('sjl/gundo.vim')
 call dein#add('kana/vim-fakeclip')
@@ -46,13 +51,6 @@ call dein#add('stephpy/vim-yaml')
 " Markdown
 call dein#add('godlygeek/tabular')
 call dein#add('plasticboy/vim-markdown')
-
-" Unite.vim
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/unite-build')
-call dein#add('Shougo/unite-outline')
-call dein#add('Shougo/neossh.vim')
 
 " テキストオブジェクト
 call dein#add('kana/vim-textobj-user')
@@ -105,11 +103,6 @@ let g:quickrun_config = {
 \		'cmdopt': '--mathml -c ~/.pandoc/github.css',
 \	}
 \}
-
-"------------------------------------------------------------------------------"
-" Unite
-"------------------------------------------------------------------------------"
-let g:unite_enable_start_insert=1
 
 "------------------------------------------------------------------------------"
 " vim-markdown
