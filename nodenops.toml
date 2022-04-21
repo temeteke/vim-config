@@ -38,3 +38,6 @@ nnoremap <silent> [unite]o    :<C-U>Unite<Space>outline<CR>
 
 [[plugins]]
 repo = 'Shougo/neossh.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
