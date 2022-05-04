@@ -36,3 +36,6 @@ vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
