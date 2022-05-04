@@ -12,6 +12,7 @@ nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
 [[plugins]]
 repo = 'sjl/gundo.vim'
 hook_add = '''
+let g:gundo_prefer_python3 = 1
 nnoremap <silent> <Leader>h :<C-U>GundoToggle<CR>
 '''
 
