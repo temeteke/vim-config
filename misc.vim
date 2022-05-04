@@ -2,8 +2,12 @@
 set number
 
 " アンドゥの永続化
-set undofile
-set undodir=./.vimundo,~/.vimundo
+if has('persistent_undo')
+	if !has('nvim')
+		set undodir=~/.vim/undo
+	endif
+	set undofile
+endif
 
 " 色をつける
 syntax on

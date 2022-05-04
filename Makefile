@@ -29,6 +29,7 @@ install-vim: install-vim-files install-vim-dein
 install-vim-files: $(VIM_FILES) $(VIM_DIR) $(VIM_SUB_FILES) $(VIM_SUB_DIR)
 	cp -rf $(VIM_FILES) $(VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(VIM_SUB_DIR)/
+	mkdir -p $(VIM_SUB_DIR)/undo
 
 $(VIM_DIR):
 	mkdir -p $@
@@ -87,6 +88,7 @@ windows-install-vim: windows-install-vim-files windows-install-vim-dein
 windows-install-vim-files: $(VIM_FILES) $(WINDOWS_VIM_DIR) $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)
 	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
 	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)/
+	mkdir -p $(WINDOWS_VIM_SUB_DIR)/undo
 
 $(WINDOWS_VIM_DIR):
 	mkdir -p $@
