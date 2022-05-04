@@ -145,3 +145,7 @@ if has('vim_starting')
 	" 終了時にデフォルトのカーソルに設定
 	let &t_te .= "\e[0 q"
 endif
+
+" 新しいウィンドウを開く位置を変更
+" set splitbelow "新しいウィンドウを下に開く fugitiveの位置を上にするため無効にする
+set splitright "新しいウィンドウを右に開く

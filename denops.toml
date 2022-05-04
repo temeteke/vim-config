@@ -12,7 +12,7 @@ depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_add = '''
 nnoremap [ddu]    <Nop>
-nmap     <Space>u [ddu]
+nmap     <Leader>u [ddu]
 '''
 
 [[plugins]]

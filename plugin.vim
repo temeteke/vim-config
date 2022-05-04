@@ -40,7 +40,6 @@ call dein#add('h1mesuke/vim-alignta')
 call dein#add('kannokanno/previm')
 call dein#add('tpope/vim-surround')
 call dein#add('ryym/vim-riot')
-call dein#add('vim-scripts/quickrun.vim')
 call dein#add('vim-scripts/camelcasemotion')
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('stephpy/vim-yaml')
@@ -80,21 +79,6 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 let g:netrw_alto = 1
-
-"------------------------------------------------------------------------------"
-" quickrun
-"------------------------------------------------------------------------------"
-let g:quickrun_config = {
-\	'_' : {
-\		'runner' : 'vimproc',
-\		'runner/vimproc/updatetime' : 60,
-\	},
-\	'markdown' : {
-\		'outputter' : 'browser',
-\		'type': 'markdown/pandoc',
-\		'cmdopt': '--mathml -c ~/.pandoc/github.css',
-\	}
-\}
 
 "------------------------------------------------------------------------------"
 " vim-markdown

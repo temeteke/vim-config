@@ -2,7 +2,7 @@
 repo = 'tpope/vim-fugitive'
 hook_add = '''
 nnoremap [fugitive]    <Nop>
-nmap     <Space>g [fugitive]
+nmap     <Leader>g [fugitive]
 nnoremap <silent> [fugitive]s :<C-U>Git<CR>
 nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
 nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
@@ -12,5 +12,23 @@ nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
 [[plugins]]
 repo = 'sjl/gundo.vim'
 hook_add = '''
-nnoremap <silent> <Space>h :<C-U>GundoToggle<CR>
+nnoremap <silent> <Leader>h :<C-U>GundoToggle<CR>
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {
+\	'_' : {
+\		'runner' : 'vimproc',
+\		'runner/vimproc/updatetime' : 60,
+\	},
+\	'markdown' : {
+\		'outputter' : 'browser',
+\		'type': 'markdown/pandoc',
+\		'cmdopt': '--mathml -c ~/.pandoc/github.css',
+\	}
+\}
+nnoremap <silent> <Leader>r :QuickRun -mode n<CR>
+vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
 '''
