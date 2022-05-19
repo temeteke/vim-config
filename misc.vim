@@ -58,10 +58,16 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
 " マウスを使用できるようにする
-" via http://cl.pocari.org/2007-03-14-3.html
-set mouse=a
-if !has('nvim')
-	set ttymouse=xterm2
+" https://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
+if has('mouse')
+	set mouse=a
+	if !has('nvim')
+		if has('mouse_sgr')
+			set ttymouse=sgr
+		else
+			set ttymouse=xterm2
+		endif
+	endif
 endif
 
 " クリップボードにコピーするようにする
