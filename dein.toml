@@ -78,3 +78,27 @@ let g:lsp_diagnostics_echo_cursor = 1
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'vim-test/vim-test'
+hook_add = '''
+let g:test#strategy = 'dispatch'
+let g:test#python#runner = 'pytest'
+nnoremap [vim-test] <Nop>
+nmap <Leader>t [vim-test]
+nnoremap <silent> [vim-test]t :TestNearest<CR>
+nnoremap <silent> [vim-test]T :TestFile<CR>
+nnoremap <silent> [vim-test]a :TestSuite<CR>
+nnoremap <silent> [vim-test]l :TestLast<CR>
+nnoremap <silent> [vim-test]g :TestVisit<CR>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+hook_add = '''
+let g:dispatch_compilers = {}
+let g:dispatch_compilers['python -m pytest'] = 'pytest'
+'''
+
+[[plugins]]
+repo = 'tartansandal/vim-compiler-pytest'
