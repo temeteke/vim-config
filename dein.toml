@@ -80,6 +80,12 @@ let g:lsp_diagnostics_echo_cursor = 1
 repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
 repo = 'vim-test/vim-test'
 hook_add = '''
 let g:test#strategy = 'dispatch'
