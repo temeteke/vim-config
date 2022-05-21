@@ -86,11 +86,11 @@ let g:test#strategy = 'dispatch'
 let g:test#python#runner = 'pytest'
 nnoremap [vim-test] <Nop>
 nmap <Leader>t [vim-test]
-nnoremap <silent> [vim-test]t :TestNearest<CR>
-nnoremap <silent> [vim-test]T :TestFile<CR>
-nnoremap <silent> [vim-test]a :TestSuite<CR>
+nnoremap <silent> [vim-test]n :TestNearest<CR>
+nnoremap <silent> [vim-test]f :TestFile<CR>
+nnoremap <silent> [vim-test]s :TestSuite<CR>
 nnoremap <silent> [vim-test]l :TestLast<CR>
-nnoremap <silent> [vim-test]g :TestVisit<CR>
+nnoremap <silent> [vim-test]v :TestVisit<CR>
 '''
 
 [[plugins]]
