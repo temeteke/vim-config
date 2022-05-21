@@ -102,3 +102,9 @@ let g:dispatch_compilers['python -m pytest'] = 'pytest'
 
 [[plugins]]
 repo = 'tartansandal/vim-compiler-pytest'
+
+[[plugins]]
+repo = 'embear/vim-localvimrc'
+hook_add = '''
+let g:localvimrc_persistent=1  " Store and restore decisions only if the answer was given in upper case (Y/N/A).
+'''
