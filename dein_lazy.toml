@@ -2,3 +2,20 @@
 repo = 'puremourning/vimspector'
 on_ft = ['python']
 build = './install_gadget.py --enable-python'
+hook_add = '''
+nmap <f4> <Plug>VimspectorStop
+nmap <f5> <Plug>VimspectorContinue
+nmap <f9> <Plug>VimspectorToggleBreakpoint
+nmap <f10> <Plug>VimspectorStepOver
+
+nnoremap [vimspector] <Nop>
+nmap <Leader>d [vimspector]
+nmap <silent> [vimspector]c <Plug>VimspectorContinue
+nmap <silent> [vimspector]s <Plug>VimspectorStop
+nmap <silent> [vimspector]r <Plug>VimpectorRestart
+nmap <silent> [vimspector]p <Plug>VimspectorPause
+nmap <silent> [vimspector]b <Plug>VimspectorToggleBreakpoint
+nmap <silent> [vimspector]o <Plug>VimspectorStepOver
+nmap <silent> [vimspector]i <Plug>VimspectorStepInto
+nmap <silent> [vimspector]q <Plug>VimspectorStepOut
+'''
