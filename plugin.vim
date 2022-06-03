@@ -23,6 +23,7 @@ call dein#begin(s:plugin_dir)
 call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
 call dein#load_toml(s:base_dir . 'dein.toml')
+call dein#load_toml(s:base_dir . 'dein_lazy.toml', {'lazy': 1})
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 

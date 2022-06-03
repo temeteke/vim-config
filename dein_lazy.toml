@@ -1,0 +1,4 @@
+[[plugins]]
+repo = 'puremourning/vimspector'
+on_ft = ['python']
+build = './install_gadget.py --enable-python'

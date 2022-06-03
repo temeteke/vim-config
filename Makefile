@@ -1,11 +1,11 @@
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc
 VIM_SUB_DIR := $(VIM_DIR)/.vim
-VIM_SUB_FILES := map.vim color.vim plugin.vim dein.toml nodenops.toml denops.toml gui.vim misc.vim
+VIM_SUB_FILES := map.vim color.vim plugin.vim dein.toml dein_lazy.toml nodenops.toml denops.toml gui.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
 NVIM_PLUGIN_DIR := ~/.cache/dein
-NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim dein.toml nodenops.toml denops.toml gui.vim misc.vim
+NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim dein.toml dein_lazy.toml nodenops.toml denops.toml gui.vim misc.vim
 
 .PHONY: all clean FORCE
 all: dein.vim
@@ -24,7 +24,7 @@ FORCE:
 install: install-vim install-nvim
 
 # Install Vim
-install-vim: install-vim-files install-vim-dein
+install-vim: install-vim-files install-vim-dein install-vim-vimspector
 
 install-vim-files: $(VIM_FILES) $(VIM_DIR) $(VIM_SUB_FILES) $(VIM_SUB_DIR)
 	cp -rf $(VIM_FILES) $(VIM_DIR)/
@@ -44,8 +44,12 @@ $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
 	cp -rfT $< $@
 
+install-vim-vimspector: install-vim-dein
+	mkdir -p $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python
+	cp vimspector/python.json $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
+
 # Install Neovim
-install-nvim: install-nvim-files install-nvim-dein
+install-nvim: install-nvim-files install-nvim-dein install-nvim-vimspector
 
 install-nvim-files: $(NVIM_FILES) $(NVIM_DIR)
 	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
@@ -59,6 +63,10 @@ install-nvim-dein: $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
 $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
 	cp -rfT $< $@
+
+install-nvim-vimspector: install-nvim-dein
+	mkdir -p $(NVIM_PLUGIN_DIR)/repos/github.com/puremourning/vimspector/configurations/linux/python
+	cp vimspector/python.json $(NVIM_PLUGIN_DIR)/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
 
 # Uninstall
 .PHONY: uninstall uninstall-vim uninstall-nvim
