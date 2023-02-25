@@ -114,3 +114,20 @@ repo = 'embear/vim-localvimrc'
 hook_add = '''
 let g:localvimrc_persistent=1  " Store and restore decisions only if the answer was given in upper case (Y/N/A).
 '''
+
+[[plugins]]
+repo = 'previm/previm'
+hook_add = '''
+nmap <Leader>p [previm]
+nnoremap [previm] <Nop>
+nnoremap <silent> [previm]o :<C-U>PrevimOpen<CR>
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+map <Leader>b [browser]
+map [browser] <Nop>
+map <silent> [browser]o <Plug>(openbrowser-open)
+map <silent> [browser]s <Plug>(openbrowser-search)
+'''

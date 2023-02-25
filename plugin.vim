@@ -34,11 +34,9 @@ else
 	call dein#load_toml(s:base_dir . 'nodenops.toml')
 endif
 
-call dein#add('tyru/open-browser.vim')
 call dein#add('kana/vim-fakeclip')
 call dein#add('lifepillar/vim-solarized8')
 call dein#add('h1mesuke/vim-alignta')
-call dein#add('kannokanno/previm')
 call dein#add('tpope/vim-surround')
 call dein#add('ryym/vim-riot')
 call dein#add('vim-scripts/camelcasemotion')
