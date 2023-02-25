@@ -8,8 +8,8 @@ nmap <f5> <Plug>VimspectorContinue
 nmap <f9> <Plug>VimspectorToggleBreakpoint
 nmap <f10> <Plug>VimspectorStepOver
 
-nnoremap [vimspector] <Nop>
 nmap <Leader>d [vimspector]
+nnoremap [vimspector] <Nop>
 nmap <silent> [vimspector]c <Plug>VimspectorContinue
 nmap <silent> [vimspector]s <Plug>VimspectorStop
 nmap <silent> [vimspector]r <Plug>VimpectorRestart

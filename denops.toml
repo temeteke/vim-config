@@ -6,8 +6,8 @@ repo = 'Shougo/ddu.vim'
 depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_add = '''
-nnoremap [ddu]    <Nop>
-nmap     <Leader>u [ddu]
+nmap <Leader>u [ddu]
+nnoremap [ddu] <Nop>
 '''
 
 [[plugins]]

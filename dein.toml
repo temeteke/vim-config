@@ -1,8 +1,8 @@
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-nnoremap [fugitive]    <Nop>
-nmap     <Leader>g [fugitive]
+nmap <Leader>g [fugitive]
+nnoremap [fugitive] <Nop>
 nnoremap <silent> [fugitive]s :<C-U>Git<CR>
 nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
 nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
@@ -59,8 +59,8 @@ function! s:on_lsp_buffer_enabled() abort
 	nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
 	nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
-	noremap [vim-lsp] <Nop>
 	map <buffer> <Leader>l [vim-lsp]
+	noremap [vim-lsp] <Nop>
 	nmap <buffer> [vim-lsp]d <plug>(lsp-peek-definition)
 	nmap <buffer> [vim-lsp]r <plug>(lsp-rename)
 	map  <buffer> [vim-lsp]f <plug>(lsp-document-format)
@@ -90,8 +90,8 @@ repo = 'vim-test/vim-test'
 hook_add = '''
 let g:test#strategy = 'dispatch'
 let g:test#python#runner = 'pytest'
-nnoremap [vim-test] <Nop>
 nmap <Leader>t [vim-test]
+nnoremap [vim-test] <Nop>
 nnoremap <silent> [vim-test]n :TestNearest<CR>
 nnoremap <silent> [vim-test]f :TestFile<CR>
 nnoremap <silent> [vim-test]s :TestSuite<CR>
@@ -127,7 +127,7 @@ nnoremap <silent> [previm]o :<C-U>PrevimOpen<CR>
 repo = 'tyru/open-browser.vim'
 hook_add = '''
 map <Leader>b [browser]
-map [browser] <Nop>
+noremap [browser] <Nop>
 map <silent> [browser]o <Plug>(openbrowser-open)
 map <silent> [browser]s <Plug>(openbrowser-search)
 '''
