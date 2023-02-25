@@ -36,7 +36,6 @@ endif
 
 call dein#add('kana/vim-fakeclip')
 call dein#add('lifepillar/vim-solarized8')
-call dein#add('h1mesuke/vim-alignta')
 call dein#add('tpope/vim-surround')
 call dein#add('ryym/vim-riot')
 call dein#add('vim-scripts/camelcasemotion')
@@ -44,7 +43,6 @@ call dein#add('vim-scripts/sudo.vim')
 call dein#add('stephpy/vim-yaml')
 
 " Markdown
-call dein#add('godlygeek/tabular')
 call dein#add('plasticboy/vim-markdown')
 
 " テキストオブジェクト
