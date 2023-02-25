@@ -38,16 +38,8 @@ call dein#add('kana/vim-fakeclip')
 call dein#add('lifepillar/vim-solarized8')
 call dein#add('tpope/vim-surround')
 call dein#add('ryym/vim-riot')
-call dein#add('vim-scripts/camelcasemotion')
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('stephpy/vim-yaml')
-
-" Markdown
-call dein#add('plasticboy/vim-markdown')
-
-" テキストオブジェクト
-call dein#add('kana/vim-textobj-user')
-call dein#add('sgur/vim-textobj-parameter')
 
 " Required:
 call dein#end()

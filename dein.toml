@@ -136,3 +136,9 @@ hook_add = '''
 xmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 '''
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+hook_add = '''
+let g:camelcasemotion_key = 'c'
+'''
