@@ -85,7 +85,7 @@ repo = 'vim-test/vim-test'
 hook_add = '''
 let g:test#strategy = 'dispatch'
 let g:test#python#runner = 'pytest'
-nmap <Leader>t [vim-test]
+nmap <Leader>e [vim-test]
 nnoremap [vim-test] <Nop>
 nnoremap <silent> [vim-test]n :TestNearest<CR>
 nnoremap <silent> [vim-test]f :TestFile<CR>
@@ -126,3 +126,6 @@ noremap [browser] <Nop>
 map <silent> [browser]o <Plug>(openbrowser-open)
 map <silent> [browser]s <Plug>(openbrowser-search)
 '''
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
