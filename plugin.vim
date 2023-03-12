@@ -25,8 +25,6 @@ call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 call dein#load_toml(s:base_dir . 'dein.toml')
 call dein#load_toml(s:base_dir . 'dein_lazy.toml', {'lazy': 1})
 
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-
 " denops.vim or not
 if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
 	call dein#load_toml(s:base_dir . 'denops.toml', {'lazy' : 1})
