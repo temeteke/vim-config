@@ -60,7 +60,3 @@ nnoremap [q :<C-U>cprevious<CR>   " 前へ
 nnoremap ]q :<C-U>cnext<CR>       " 次へ
 nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
-
-" : と ; を入れ替える
-noremap ; :
-noremap : ;
