@@ -155,3 +155,11 @@ if has('vim_starting')
 	" 終了時にデフォルトのカーソルに設定
 	let &t_te .= "\e[0 q"
 endif
+
+" netrw
+" ツリー形式
+let g:netrw_liststyle = 3
+" 水平分割では下に開く
+let g:netrw_alto = 1
+" 垂直分割では右に開く
+let g:netrw_altv = 1
