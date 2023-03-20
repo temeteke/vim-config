@@ -156,3 +156,9 @@ repo = 'bkad/CamelCaseMotion'
 hook_add = '''
 let g:camelcasemotion_key = ','
 '''
+
+[[plugins]]
+repo = 'lifepillar/vim-solarized8'
+
+[[plugins]]
+repo = 'tpope/vim-surround'

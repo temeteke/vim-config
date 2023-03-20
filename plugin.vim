@@ -32,13 +32,6 @@ else
 	call dein#load_toml(s:base_dir . 'plugin_dein_nodenops.toml')
 endif
 
-call dein#add('kana/vim-fakeclip')
-call dein#add('lifepillar/vim-solarized8')
-call dein#add('tpope/vim-surround')
-call dein#add('ryym/vim-riot')
-call dein#add('vim-scripts/sudo.vim')
-call dein#add('stephpy/vim-yaml')
-
 " Required:
 call dein#end()
 
