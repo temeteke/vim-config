@@ -22,14 +22,14 @@ call dein#begin(s:plugin_dir)
 " Required:
 call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
-call dein#load_toml(s:base_dir . 'dein.toml')
-call dein#load_toml(s:base_dir . 'dein_lazy.toml', {'lazy': 1})
+call dein#load_toml(s:base_dir . 'plugin_dein.toml')
+call dein#load_toml(s:base_dir . 'plugin_dein_lazy.toml', {'lazy': 1})
 
 " denops.vim or not
 if (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
-	call dein#load_toml(s:base_dir . 'denops.toml', {'lazy' : 1})
+	call dein#load_toml(s:base_dir . 'plugin_dein_denops.toml', {'lazy' : 1})
 else
-	call dein#load_toml(s:base_dir . 'nodenops.toml')
+	call dein#load_toml(s:base_dir . 'plugin_dein_nodenops.toml')
 endif
 
 call dein#add('kana/vim-fakeclip')
