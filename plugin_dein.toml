@@ -8,12 +8,19 @@ let g:vimproc#download_windows_dll = 1
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-nmap <Leader>g [fugitive]
-nnoremap [fugitive] <Nop>
-nnoremap <silent> [fugitive]s :<C-U>Git<CR>
-nnoremap <silent> [fugitive]d :<C-U>Gdiffsplit<CR>
-nnoremap <silent> [fugitive]b :<C-U>Git blame<CR>
-nnoremap <silent> [fugitive]c :<C-U>Git commit<CR>
+nmap <Leader>g [git]
+nnoremap [git] <Nop>
+nnoremap <silent> [git]s :<C-U>Git<CR>
+nnoremap <silent> [git]d :<C-U>Gdiffsplit<CR>
+nnoremap <silent> [git]b :<C-U>Git blame<CR>
+nnoremap <silent> [git]c :<C-U>Git commit<CR>
+'''
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+hook_add = '''
+let git_messenger_no_default_mappings = v:true
+nnoremap <silent> [git]m <Plug>(git-messenger)
 '''
 
 [[plugins]]
