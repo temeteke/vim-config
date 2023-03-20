@@ -51,7 +51,6 @@ set shellslash
 
 " カーソル位置を強調
 set cursorline
-set cursorcolumn
 
 " マウスを使用できるようにする
 " https://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
