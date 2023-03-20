@@ -48,9 +48,6 @@ vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
 function! s:on_lsp_buffer_enabled() abort
