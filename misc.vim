@@ -12,13 +12,11 @@ endif
 " 色をつける
 syntax on
 
-" タブを表示するときの幅
+" 画面上でタブ文字が占める幅の設定
 set tabstop=4
-" タブを挿入するときの幅
+" 自動インデントやコマンド "<<", ">>" でずれる幅
 set shiftwidth=4
-" タブをタブとして扱う(スペースに展開しない)
-set noexpandtab
-" 
+" <Tab> や <BS> を打ち込んだときにカーソルが動く幅
 set softtabstop=0
 
 " 補完
@@ -51,11 +49,9 @@ set nobackup
 " for Windows
 set shellslash
 
-" 現在行にアンダーラインを引く (気の利いた機能付き) 
-" via http://d.hatena.ne.jp/kozo-ni/20081103#1225684026
-setlocal cursorline
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" カーソル位置を強調
+set cursorline
+set cursorcolumn
 
 " マウスを使用できるようにする
 " https://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
@@ -115,20 +111,20 @@ set diffopt+=vertical
 " http://d.hatena.ne.jp/rdera/20081022/1224682665
 "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
 augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-  autocmd BufReadPost * set ft=xxd | endif
-  autocmd BufWritePre * if &binary | %!xxd -r | endif
-  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-  autocmd BufWritePost * set nomod | endif
+	autocmd!
+	autocmd BufReadPre  *.bin let &binary =1
+	autocmd BufReadPost * if &binary | silent %!xxd -g 1
+	autocmd BufReadPost * set ft=xxd | endif
+	autocmd BufWritePre * if &binary | %!xxd -r | endif
+	autocmd BufWritePost * if &binary | silent %!xxd -g 1
+	autocmd BufWritePost * set nomod | endif
 augroup END
 
 " :DiffOrig
 " vimrc_example.vim
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		\ | wincmd p | diffthis
 endif
 
 " IME デフォルトオフ
