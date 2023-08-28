@@ -101,7 +101,8 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 if v:version > 704 || (v:version == 704 && has('patch088'))
 	set spelllang+=cjk
 endif
-set spell
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
 
 " diff
 set diffopt+=vertical
