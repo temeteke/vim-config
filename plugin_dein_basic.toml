@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'

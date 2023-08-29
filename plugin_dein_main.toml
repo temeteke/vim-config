@@ -45,9 +45,6 @@ vnoremap <silent> <Leader>r :QuickRun -mode v<CR>
 '''
 
 [[plugins]]
-repo = 'rhysd/clever-f.vim'
-
-[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
 function! s:on_lsp_buffer_enabled() abort
@@ -156,9 +153,6 @@ let g:camelcasemotion_key = ','
 
 [[plugins]]
 repo = 'lifepillar/vim-solarized8'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
