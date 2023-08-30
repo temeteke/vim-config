@@ -3,10 +3,10 @@ set number
 
 " アンドゥの永続化
 if has('persistent_undo')
-	if !has('nvim')
-		set undodir=~/.vim/undo
-	endif
-	set undofile
+    if !has('nvim')
+        set undodir=~/.vim/undo
+    endif
+    set undofile
 endif
 
 " 色をつける
@@ -56,14 +56,14 @@ set cursorline
 " マウスを使用できるようにする
 " https://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
 if has('mouse')
-	set mouse=a
-	if !has('nvim')
-		if has('mouse_sgr')
-			set ttymouse=sgr
-		else
-			set ttymouse=xterm2
-		endif
-	endif
+    set mouse=a
+    if !has('nvim')
+        if has('mouse_sgr')
+            set ttymouse=sgr
+        else
+            set ttymouse=xterm2
+        endif
+    endif
 endif
 
 " クリップボードにコピーするようにする
@@ -100,7 +100,7 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
 " スペルチェック
 if v:version > 704 || (v:version == 704 && has('patch088'))
-	set spelllang+=cjk
+    set spelllang+=cjk
 endif
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
@@ -112,20 +112,20 @@ set diffopt+=vertical
 " http://d.hatena.ne.jp/rdera/20081022/1224682665
 "バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
 augroup BinaryXXD
-	autocmd!
-	autocmd BufReadPre  *.bin let &binary =1
-	autocmd BufReadPost * if &binary | silent %!xxd -g 1
-	autocmd BufReadPost * set ft=xxd | endif
-	autocmd BufWritePre * if &binary | %!xxd -r | endif
-	autocmd BufWritePost * if &binary | silent %!xxd -g 1
-	autocmd BufWritePost * set nomod | endif
+    autocmd!
+    autocmd BufReadPre  *.bin let &binary =1
+    autocmd BufReadPost * if &binary | silent %!xxd -g 1
+    autocmd BufReadPost * set ft=xxd | endif
+    autocmd BufWritePre * if &binary | %!xxd -r | endif
+    autocmd BufWritePost * if &binary | silent %!xxd -g 1
+    autocmd BufWritePost * set nomod | endif
 augroup END
 
 " :DiffOrig
 " vimrc_example.vim
 if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		\ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
 endif
 
 " IME デフォルトオフ
@@ -141,16 +141,16 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 " https://oki2a24.com/2019/02/19/how-to-set-terminal-vim-cursor-in-vimrc-as-i-leraned-from-mintty-wiki-tips/
 " https://ttssh2.osdn.jp/manual/4/ja/usage/tips/vim.html
 if has('vim_starting')
-	" 起動時に非点滅のブロックタイプのカーソルに設定
-	let &t_ti .= "\e[2 q"
-	" ノーマルモード時に非点滅のブロックタイプのカーソルに設定
-	let &t_EI .= "\e[2 q"
-	" 挿入モード時に非点滅の縦棒タイプのカーソルに設定
-	let &t_SI .= "\e[6 q"
-	" 置換モード時に非点滅の下線タイプのカーソルに設定
-	let &t_SR .= "\e[4 q"
-	" 終了時にデフォルトのカーソルに設定
-	let &t_te .= "\e[0 q"
+    " 起動時に非点滅のブロックタイプのカーソルに設定
+    let &t_ti .= "\e[2 q"
+    " ノーマルモード時に非点滅のブロックタイプのカーソルに設定
+    let &t_EI .= "\e[2 q"
+    " 挿入モード時に非点滅の縦棒タイプのカーソルに設定
+    let &t_SI .= "\e[6 q"
+    " 置換モード時に非点滅の下線タイプのカーソルに設定
+    let &t_SR .= "\e[4 q"
+    " 終了時にデフォルトのカーソルに設定
+    let &t_te .= "\e[0 q"
 endif
 
 " netrw
