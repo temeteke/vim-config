@@ -12,6 +12,7 @@ endif
 " 色をつける
 syntax on
 
+set expandtab
 " 画面上でタブ文字が占める幅の設定
 set tabstop=4
 " 自動インデントやコマンド "<<", ">>" でずれる幅
