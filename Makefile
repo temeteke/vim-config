@@ -14,7 +14,7 @@ dein.vim:
 	git clone --depth 1 https://github.com/Shougo/dein.vim -b 2.2 $@
 
 clean:
-	rm -rf dein.vim
+	rm -fr dein.vim
 
 FORCE:
 
@@ -27,8 +27,8 @@ install: install-vim install-nvim
 install-vim: install-vim-files install-vim-dein install-vim-vimspector
 
 install-vim-files: $(VIM_FILES) $(VIM_DIR) $(VIM_SUB_FILES) $(VIM_SUB_DIR)
-	cp -rf $(VIM_FILES) $(VIM_DIR)/
-	cp -rf $(VIM_SUB_FILES) $(VIM_SUB_DIR)/
+	cp -afr $(VIM_FILES) $(VIM_DIR)/
+	cp -afr $(VIM_SUB_FILES) $(VIM_SUB_DIR)/
 	mkdir -p $(VIM_SUB_DIR)/undo
 
 $(VIM_DIR):
@@ -42,17 +42,17 @@ install-vim-dein: $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 $(VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
-	cp -rfT $< $@
+	cp -afrT $< $@
 
 install-vim-vimspector: install-vim-dein
 	mkdir -p $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python
-	cp vimspector/python.json $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
+	cp -a vimspector/python.json $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
 
 # Install Neovim
 install-nvim: install-nvim-files install-nvim-dein install-nvim-vimspector
 
 install-nvim-files: $(NVIM_FILES) $(NVIM_DIR)
-	cp -rf $(NVIM_FILES) $(NVIM_DIR)/
+	cp -afr $(NVIM_FILES) $(NVIM_DIR)/
 
 $(NVIM_DIR):
 	mkdir -p $@
@@ -62,23 +62,23 @@ install-nvim-dein: $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim
 
 $(NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
-	cp -rfT $< $@
+	cp -frT $< $@
 
 install-nvim-vimspector: install-nvim-dein
 	mkdir -p $(NVIM_PLUGIN_DIR)/repos/github.com/puremourning/vimspector/configurations/linux/python
-	cp vimspector/python.json $(NVIM_PLUGIN_DIR)/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
+	cp -a vimspector/python.json $(NVIM_PLUGIN_DIR)/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
 
 # Uninstall
 .PHONY: uninstall uninstall-vim uninstall-nvim
 uninstall: uninstall-vim uninstall-nvim
 
 uninstall-vim:
-	rm -rf $(addprefix $(VIM_DIR)/, $(VIM_FILES))
-	rm -rf $(VIM_SUB_DIR)
+	rm -fr $(addprefix $(VIM_DIR)/, $(VIM_FILES))
+	rm -fr $(VIM_SUB_DIR)
 
 uninstall-nvim:
-	rm -rf $(addprefix $(NVIM_DIR)/, $(NVIM_FILES))
-	rm -rf $(NVIM_PLUGIN_DIR)
+	rm -fr $(addprefix $(NVIM_DIR)/, $(NVIM_FILES))
+	rm -fr $(NVIM_PLUGIN_DIR)
 
 
 WINDOWS_VIM_DIR := $(shell type wslpath > /dev/null 2>&1 && type wslvar > /dev/null && wslpath "$(shell type wslvar > /dev/null 2>&1 && type wslvar > /dev/null && wslvar USERPROFILE)")
@@ -94,8 +94,8 @@ windows-install: windows-install-vim windows-install-nvim
 windows-install-vim: windows-install-vim-files windows-install-vim-dein
 
 windows-install-vim-files: $(VIM_FILES) $(WINDOWS_VIM_DIR) $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)
-	cp -rf $(VIM_FILES) $(WINDOWS_VIM_DIR)/
-	cp -rf $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)/
+	cp -fr $(VIM_FILES) $(WINDOWS_VIM_DIR)/
+	cp -fr $(VIM_SUB_FILES) $(WINDOWS_VIM_SUB_DIR)/
 	mkdir -p $(WINDOWS_VIM_SUB_DIR)/undo
 
 $(WINDOWS_VIM_DIR):
@@ -108,13 +108,13 @@ windows-install-vim-dein: $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shoug
 
 $(WINDOWS_VIM_DIR)/.vim/bundles/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
-	cp -rfT $< $@
+	cp -frT $< $@
 
 # Install Neovim in Windows
 windows-install-nvim: windows-install-nvim-files windows-install-nvim-dein
 
 windows-install-nvim-files: $(WINDOWS_NVIM_DIR) $(NVIM_FILES)
-	cp -rf $(NVIM_FILES) $(WINDOWS_NVIM_DIR)/
+	cp -arf $(NVIM_FILES) $(WINDOWS_NVIM_DIR)/
 
 $(WINDOWS_NVIM_DIR):
 	mkdir -p $@
@@ -123,16 +123,16 @@ windows-install-nvim-dein: $(WINDOWS_NVIM_PLUGIN_DIR)/repos/github.com/Shougo/de
 
 $(WINDOWS_NVIM_PLUGIN_DIR)/repos/github.com/Shougo/dein.vim: dein.vim
 	mkdir -p $@
-	cp -rfT $< $@
+	cp -afrT $< $@
 
 # Uninstall in Windows
 .PHONY: windows-uninstall windows-uninstall-vim windows-uninstall-nvim
 windows-uninstall: windows-uninstall-vim windows-uninstall-nvim
 
 windows-uninstall-vim:
-	rm -rf $(addprefix $(WINDOWS_VIM_DIR)/, $(VIM_FILES))
-	rm -rf $(WINDOWS_VIM_SUB_DIR)
+	rm -fr $(addprefix $(WINDOWS_VIM_DIR)/, $(VIM_FILES))
+	rm -fr $(WINDOWS_VIM_SUB_DIR)
 
 windows-uninstall-nvim:
-	rm -rf $(addprefix $(WINDOWS_NVIM_DIR)/, $(NVIM_FILES))
-	rm -rf $(WINDOWS_NVIM_PLUGIN_DIR)
+	rm -fr $(addprefix $(WINDOWS_NVIM_DIR)/, $(NVIM_FILES))
+	rm -fr $(WINDOWS_NVIM_PLUGIN_DIR)
