@@ -1,3 +1,9 @@
+ROOT_DIR := ~/.local
+
+NVIM_TAR_NAME := nvim-linux64
+NVIM_TAR_FILE := $(NVIM_TAR_NAME).tar.gz
+NVIM_TAR_URL := https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc
 VIM_SUB_DIR := $(VIM_DIR)/.vim
@@ -8,13 +14,17 @@ NVIM_PLUGIN_DIR := ~/.cache/dein
 NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim plugin_dein_basic.toml plugin_dein_main.toml plugin_dein_lazy.toml plugin_dein_nodenops.toml plugin_dein_denops.toml gui.vim misc.vim
 
 .PHONY: all clean FORCE
-all: dein.vim
+all: dein.vim $(NVIM_TAR_FILE)
 
 dein.vim:
 	git clone --depth 1 https://github.com/Shougo/dein.vim -b 2.2 $@
 
+$(NVIM_TAR_FILE):
+	curl -LR -o $@ $(NVIM_TAR_URL)
+
 clean:
 	rm -fr dein.vim
+	rm -fr $(NVIM_TAR_FILE)
 
 FORCE:
 
@@ -49,7 +59,11 @@ install-vim-vimspector: install-vim-dein
 	cp -a vimspector/python.json $(VIM_DIR)/.vim/bundles/repos/github.com/puremourning/vimspector/configurations/linux/python/python.json
 
 # Install Neovim
-install-nvim: install-nvim-files install-nvim-dein install-nvim-vimspector
+install-nvim: install-nvim-bin install-nvim-files install-nvim-dein install-nvim-vimspector
+
+install-nvim-bin: $(NVIM_TAR_FILE)
+	mkdir -p $(ROOT_DIR)
+	tar -xf $(NVIM_TAR_FILE) -C $(ROOT_DIR) --strip-components 1
 
 install-nvim-files: $(NVIM_FILES) $(NVIM_DIR)
 	cp -afr $(NVIM_FILES) $(NVIM_DIR)/
