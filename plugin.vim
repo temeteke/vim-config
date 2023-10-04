@@ -24,6 +24,12 @@ if !exists('g:vscode')
     call dein#load_toml(s:base_dir . 'plugin_dein_main.toml')
     call dein#load_toml(s:base_dir . 'plugin_dein_lazy.toml', {'lazy': 1})
 
+    if has('nvim')
+        call dein#load_toml(s:base_dir . 'plugin_dein_nvim.toml')
+    else
+        call dein#load_toml(s:base_dir . 'plugin_dein_vim.toml')
+    endif
+
     " denops.vim or not
     let s:denops = (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
     if s:denops
