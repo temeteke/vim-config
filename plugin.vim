@@ -20,23 +20,21 @@ call dein#begin(s:plugin_dir)
 call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
 
 call dein#load_toml(s:base_dir . 'plugin_dein_basic.toml')
-if !exists('g:vscode')
-    call dein#load_toml(s:base_dir . 'plugin_dein_main.toml')
-    call dein#load_toml(s:base_dir . 'plugin_dein_lazy.toml', {'lazy': 1})
+call dein#load_toml(s:base_dir . 'plugin_dein_main.toml', {'if': !exists('g:vscode')})
+call dein#load_toml(s:base_dir . 'plugin_dein_lazy.toml', {'if': !exists('g:vscode'), 'lazy': 1})
 
-    if has('nvim')
-        call dein#load_toml(s:base_dir . 'plugin_dein_nvim.toml')
-    else
-        call dein#load_toml(s:base_dir . 'plugin_dein_vim.toml')
-    endif
+if has('nvim')
+    call dein#load_toml(s:base_dir . 'plugin_dein_nvim.toml', {'if': !exists('g:vscode')})
+else
+    call dein#load_toml(s:base_dir . 'plugin_dein_vim.toml', {'if': !exists('g:vscode')})
+endif
 
-    " denops.vim or not
-    let s:denops = (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
-    if s:denops
-        call dein#load_toml(s:base_dir . 'plugin_dein_denops.toml', {'lazy' : 1})
-    else
-        call dein#load_toml(s:base_dir . 'plugin_dein_nodenops.toml')
-    endif
+" denops.vim or not
+let s:denops = (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
+if s:denops
+    call dein#load_toml(s:base_dir . 'plugin_dein_denops.toml', {'if': !exists('g:vscode'), 'lazy': 1})
+else
+    call dein#load_toml(s:base_dir . 'plugin_dein_nodenops.toml', {'if': !exists('g:vscode')})
 endif
 
 call dein#end()
