@@ -7,11 +7,11 @@ NVIM_TAR_URL := https://github.com/neovim/neovim/releases/download/stable/$(NVIM
 VIM_DIR := ~
 VIM_FILES := .vimrc .gvimrc
 VIM_SUB_DIR := $(VIM_DIR)/.vim
-VIM_SUB_FILES := map.vim color.vim plugin.vim plugin_dein_basic.toml plugin_dein_main.toml plugin_dein_lazy.toml plugin_dein_vim.toml plugin_dein_nodenops.toml plugin_dein_denops.toml gui.vim misc.vim
+VIM_SUB_FILES := map.vim color.vim plugin.vim jetpack.vim plugin_dein_basic.toml plugin_dein_main.toml plugin_dein_lazy.toml plugin_dein_vim.toml plugin_dein_nodenops.toml plugin_dein_denops.toml gui.vim misc.vim
 
 NVIM_DIR := ~/.config/nvim
 NVIM_PLUGIN_DIR := ~/.cache/dein
-NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim plugin_dein_basic.toml plugin_dein_main.toml plugin_dein_lazy.toml plugin_dein_nvim.toml plugin_dein_nodenops.toml plugin_dein_denops.toml gui.vim misc.vim
+NVIM_FILES := init.vim ginit.vim map.vim color.vim plugin.vim jetpack.vim plugin_dein_basic.toml plugin_dein_main.toml plugin_dein_lazy.toml plugin_dein_nvim.toml plugin_dein_nodenops.toml plugin_dein_denops.toml gui.vim misc.vim
 
 .PHONY: all clean FORCE
 all: dein.vim $(NVIM_TAR_FILE)

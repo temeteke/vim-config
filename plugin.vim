@@ -1,3 +1,8 @@
+if filereadable('jetpack.vim')
+    runtime jetpack.vim
+    finish
+endif
+
 if has('nvim')
     let s:plugin_dir='~/.cache/dein'
 else
