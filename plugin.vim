@@ -1,58 +1,45 @@
-if filereadable('jetpack.vim')
-    runtime jetpack.vim
-    finish
-endif
-
-if has('nvim')
-    let s:plugin_dir='~/.cache/dein'
-else
-    let s:plugin_dir='~/.vim/bundles'
-endif
-
 let s:base_dir = fnamemodify(expand('<sfile>'), ':h') . '/'
 
-
-" Dein.vim
-if &compatible
-    set nocompatible
-endif
-
-execute 'set runtimepath+=' . s:plugin_dir . '/repos/github.com/Shougo/dein.vim'
-
-call dein#begin(s:plugin_dir)
-
-" Let dein manage dein
-call dein#add(s:plugin_dir . '/repos/github.com/Shougo/dein.vim')
-
-call dein#load_toml(s:base_dir . 'plugin_dein_basic.toml')
-call dein#load_toml(s:base_dir . 'plugin_dein_main.toml', {'if': !exists('g:vscode')})
-call dein#load_toml(s:base_dir . 'plugin_dein_lazy.toml', {'if': !exists('g:vscode'), 'lazy': 1})
-
+" Automatic installation on startup
 if has('nvim')
-    call dein#load_toml(s:base_dir . 'plugin_dein_nvim.toml', {'if': !exists('g:vscode')})
+    let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
 else
-    call dein#load_toml(s:base_dir . 'plugin_dein_vim.toml', {'if': !exists('g:vscode')})
+    let s:jetpackfile = expand('<sfile>:p:h') .. '/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+endif
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+    call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-" denops.vim or not
-let s:denops = (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
-if s:denops
-    call dein#load_toml(s:base_dir . 'plugin_dein_denops.toml', {'if': !exists('g:vscode'), 'lazy': 1})
-else
-    call dein#load_toml(s:base_dir . 'plugin_dein_nodenops.toml', {'if': !exists('g:vscode')})
+" Install plugins
+packadd vim-jetpack
+call jetpack#begin()
+call jetpack#add('tani/vim-jetpack', {'opt': 1}) "bootstrap
+call jetpack#load_toml(s:base_dir . 'plugin_dein_basic.toml')
+if !exists('g:vscode')
+    call jetpack#load_toml(s:base_dir . 'plugin_dein_main.toml')
+    call jetpack#load_toml(s:base_dir . 'plugin_dein_lazy.toml')
+
+    if has('nvim') && !exists('g:vscode')
+        call jetpack#load_toml(s:base_dir . 'plugin_dein_nvim.toml')
+    else
+        call jetpack#load_toml(s:base_dir . 'plugin_dein_vim.toml')
+    endif
+
+    " denops.vim or not
+    let s:denops = (has('patch-8.2.3452') || has('nvim-0.6.0')) && executable('deno')
+    if s:denops
+        call jetpack#load_toml(s:base_dir . 'plugin_dein_denops.toml')
+    else
+        call jetpack#load_toml(s:base_dir . 'plugin_dein_nodenops.toml')
+    endif
 endif
+call jetpack#end()
 
-call dein#end()
-
-filetype plugin indent on
-syntax enable
-
-if dein#check_install()
-    call dein#install()
-endif
-
-let s:removed_plugins = dein#check_clean()
-if len(s:removed_plugins) > 0
-    call map(s:removed_plugins, "delete(v:val, 'rf')")
-    call dein#recache_runtimepath()
-endif
+" Automatic plugin installation on startup
+for name in jetpack#names()
+    if !jetpack#tap(name)
+        call jetpack#sync()
+        break
+    endif
+endfor
