@@ -1,6 +1,6 @@
 ROOT_DIR := ~/.local
 
-NVIM_TAR_NAME := nvim-linux64
+NVIM_TAR_NAME := nvim-linux-x86_64
 NVIM_TAR_FILE := $(NVIM_TAR_NAME).tar.gz
 NVIM_TAR_URL := https://github.com/neovim/neovim/releases/download/stable/$(NVIM_TAR_FILE)
 
