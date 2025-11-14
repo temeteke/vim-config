@@ -168,3 +168,27 @@ repo = 'markonm/traces.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+hook_add = '''
+function! s:init_fern() abort
+  " Returnキーとダブルクリックの両方を設定
+  nmap <buffer><expr> <Return> fern#smart#drawer(
+        \ "\<Plug>(fern-action-open-or-expand)",
+        \ "\<Plug>(fern-action-open-or-enter)",
+        \ )
+  nmap <buffer><expr> <2-LeftMouse> fern#smart#drawer(
+        \ "\<Plug>(fern-action-open-or-expand)",
+        \ "\<Plug>(fern-action-open-or-enter)",
+        \ )
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
+
+augroup fern-startup
+  autocmd!
+  " 引数無しでvimを起動した場合は、drawerを開く
+  autocmd VimEnter * ++nested if argc() == 0 | Fern . -drawer -stay | endif
+augroup END
+'''
