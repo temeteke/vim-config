@@ -165,3 +165,6 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
